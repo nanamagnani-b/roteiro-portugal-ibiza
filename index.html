@@ -1,0 +1,3375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https: http:;">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portugal & Ibiza · Caderno de Viagem · 11–23 Junho 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+/* =============================================================
+   CADERNO DE VIAGEM — PORTUGAL & IBIZA · JUN 2026
+   Estética editorial premium, herança Casa Amora
+   ============================================================= */
+
+:root{
+  /* Paleta — papel, sálvia, vinho, mostarda, terracota */
+  --paper:        #FAF6EE;
+  --paper-warm:   #F4ECDC;
+  --wood:         #E8DCC4;
+  --wood-deep:    #D4C39E;
+  --sage:         #8A9A7B;
+  --sage-deep:    #5C6749;
+  --sage-dark:    #3D4632;
+  --amora:        #6B2C39;
+  --amora-deep:   #4A1D27;
+  --mustard:      #C89F4B;
+  --mustard-deep: #9F7A2D;
+  --terra:        #C97F5B;
+  --terra-deep:   #A0573A;
+  --ink:          #2A2823;
+  --ink-soft:     #4A463E;
+  --ink-mute:     #6E685B;
+  --line:         #C8BFA8;
+  --line-soft:    #DBD2BB;
+  --sky:          #6B8CAE;
+  --sun:          #E8C04F;
+
+  /* Tipografia */
+  --display: 'Fraunces', Georgia, serif;
+  --body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --hand:    'Caveat', 'Brush Script MT', cursive;
+
+  /* Espacamento */
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --max:    1240px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  font-size:16px;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+/* Grain overlay sutil em todo o documento */
+body::before{
+  content:'';
+  position:fixed; inset:0;
+  background-image:
+    radial-gradient(circle at 25% 35%, rgba(140,120,80,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 75% 65%, rgba(107,44,57,0.03) 0%, transparent 50%);
+  pointer-events:none;
+  z-index:1;
+}
+
+main, header, footer, section{position:relative; z-index:2}
+
+a{color:var(--amora); text-decoration:none; transition:color .2s ease}
+a:hover{color:var(--amora-deep)}
+
+h1,h2,h3,h4,h5{font-family:var(--display); font-weight:400; color:var(--ink); letter-spacing:-0.01em}
+
+/* ============================================================= 
+   HERO — Capa editorial
+   ============================================================= */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:clamp(1.5rem,4vw,3rem) var(--gutter) clamp(2rem,5vw,3.5rem);
+  background:
+    radial-gradient(ellipse at top left, rgba(200,159,75,.18), transparent 55%),
+    radial-gradient(ellipse at bottom right, rgba(107,44,57,.12), transparent 50%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-warm) 100%);
+  border-bottom:1px solid var(--line);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Decorativo: linhas finas estilo mapa náutico */
+.hero::after{
+  content:'';
+  position:absolute; right:-100px; top:50%; transform:translateY(-50%);
+  width:600px; height:600px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  opacity:.25;
+  pointer-events:none;
+}
+.hero::before{
+  content:'';
+  position:absolute; right:-200px; top:50%; transform:translateY(-50%);
+  width:800px; height:800px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  opacity:.15;
+  pointer-events:none;
+}
+
+.hero-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  font-family:var(--body);
+  font-size:.72rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+  font-weight:500;
+}
+
+.hero-top .left{display:flex; gap:1.5rem; align-items:center}
+.hero-top .divider{display:inline-block; width:30px; height:1px; background:var(--line)}
+
+.hero-center{
+  display:flex; flex-direction:column; gap:1rem;
+  margin:auto 0;
+  position:relative; z-index:2;
+}
+
+.eyebrow{
+  font-family:var(--hand);
+  font-size:clamp(1.5rem, 3vw, 2.25rem);
+  color:var(--amora);
+  font-weight:500;
+  line-height:1;
+  transform:rotate(-2deg);
+  display:inline-block;
+}
+
+.hero-title{
+  font-family:var(--display);
+  font-size:clamp(3.5rem, 11vw, 9.5rem);
+  font-weight:300;
+  line-height:.92;
+  letter-spacing:-0.04em;
+  color:var(--ink);
+  font-variation-settings:"opsz" 144, "SOFT" 50;
+}
+
+.hero-title .amp{
+  font-style:italic;
+  font-weight:300;
+  color:var(--amora);
+  font-family:var(--display);
+}
+
+.hero-title .second{
+  font-style:italic;
+  font-weight:300;
+  color:var(--sage-deep);
+  display:inline-block;
+  margin-left:.2em;
+}
+
+.hero-sub{
+  display:flex; align-items:baseline; gap:1.5rem;
+  margin-top:1.5rem;
+  flex-wrap:wrap;
+}
+
+.hero-sub .dates{
+  font-family:var(--display);
+  font-size:clamp(1.25rem, 2vw, 1.6rem);
+  font-style:italic;
+  font-weight:400;
+  color:var(--ink-soft);
+  letter-spacing:.01em;
+}
+
+.hero-sub .meta{
+  font-family:var(--body);
+  font-size:.75rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+  font-weight:600;
+  border-left:1px solid var(--line);
+  padding-left:1.25rem;
+}
+
+.hero-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:2rem;
+  flex-wrap:wrap;
+  font-family:var(--body);
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+}
+
+.hero-stats{
+  display:flex; gap:clamp(1.5rem, 4vw, 3rem);
+  flex-wrap:wrap;
+}
+
+.hero-stats .stat{
+  display:flex; flex-direction:column; gap:.25rem;
+}
+.hero-stats .stat .n{
+  font-family:var(--display);
+  font-size:clamp(2rem, 4vw, 2.6rem);
+  font-weight:400;
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:-.02em;
+}
+.hero-stats .stat .l{
+  font-size:.66rem;
+  letter-spacing:.2em;
+  color:var(--ink-mute);
+}
+
+.hero-signature{
+  font-family:var(--hand);
+  font-size:1.6rem;
+  color:var(--ink-soft);
+  letter-spacing:0;
+  text-transform:none;
+  transform:rotate(-1.5deg);
+}
+
+/* =============================================================
+   CHROME — Nav lateral pegajosa
+   ============================================================= */
+.toc{
+  position:fixed;
+  top:50%; left:1rem;
+  transform:translateY(-50%);
+  z-index:50;
+  display:flex; flex-direction:column; gap:.5rem;
+  font-family:var(--body);
+  font-size:.65rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.toc a{
+  display:block; padding:.4rem .6rem;
+  color:var(--ink-mute);
+  border-left:2px solid transparent;
+  transition:all .25s ease;
+  background:rgba(250,246,238,0.6);
+  backdrop-filter:blur(8px);
+}
+.toc a:hover{color:var(--amora); border-left-color:var(--amora); padding-left:.85rem}
+@media (max-width:1100px){.toc{display:none}}
+
+/* =============================================================
+   SEÇÕES — Padrão
+   ============================================================= */
+section{
+  padding:clamp(3.5rem, 8vw, 6rem) var(--gutter);
+  max-width:var(--max);
+  margin:0 auto;
+}
+
+.section-head{
+  display:flex; flex-direction:column; gap:.75rem;
+  margin-bottom:clamp(2.5rem, 5vw, 4rem);
+  position:relative;
+}
+
+.section-number{
+  font-family:var(--display);
+  font-size:.85rem;
+  letter-spacing:.25em;
+  color:var(--amora);
+  font-weight:500;
+  font-style:italic;
+  display:flex; align-items:center; gap:.75rem;
+}
+.section-number::before{
+  content:''; display:inline-block;
+  width:2.5rem; height:1px; background:var(--amora);
+}
+
+.section-title{
+  font-family:var(--display);
+  font-size:clamp(2.25rem, 5.5vw, 4rem);
+  font-weight:300;
+  line-height:1;
+  letter-spacing:-.03em;
+  color:var(--ink);
+}
+.section-title em{
+  font-style:italic; color:var(--sage-deep); font-weight:300;
+}
+
+.section-lede{
+  font-family:var(--display);
+  font-size:clamp(1.05rem, 1.6vw, 1.3rem);
+  font-style:italic;
+  font-weight:300;
+  color:var(--ink-soft);
+  max-width:62ch;
+  line-height:1.5;
+  margin-top:.5rem;
+}
+
+.section-divider{
+  width:100%; height:1px;
+  background:linear-gradient(90deg, var(--line), transparent);
+  margin-top:2rem;
+}
+
+/* =============================================================
+   BRIEFING — Dashboard inicial
+   ============================================================= */
+.briefing{
+  background:var(--paper);
+  border-top:1px solid var(--line-soft);
+}
+
+.brief-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:1.5rem;
+  margin-top:2rem;
+}
+
+.brief-card{
+  background:var(--paper-warm);
+  border:1px solid var(--line-soft);
+  padding:1.5rem 1.25rem;
+  position:relative;
+  transition:all .3s ease;
+}
+.brief-card:hover{
+  border-color:var(--sage);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px -12px rgba(60,70,50,.15);
+}
+.brief-card .label{
+  font-size:.68rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+  font-weight:600;
+  margin-bottom:.5rem;
+}
+.brief-card .val{
+  font-family:var(--display);
+  font-size:1.5rem;
+  font-weight:400;
+  color:var(--ink);
+  line-height:1.1;
+  letter-spacing:-.01em;
+}
+.brief-card .val em{
+  font-style:italic; color:var(--amora);
+}
+.brief-card .note{
+  font-size:.78rem;
+  color:var(--ink-mute);
+  margin-top:.5rem;
+  font-style:italic;
+}
+
+/* Decoração — círculo lambido no topo */
+.brief-card.accent{
+  background:var(--sage-deep);
+  color:var(--paper);
+  border-color:var(--sage-deep);
+}
+.brief-card.accent .label{color:var(--wood)}
+.brief-card.accent .val{color:var(--paper)}
+.brief-card.accent .val em{color:var(--mustard)}
+.brief-card.accent .note{color:var(--wood-deep)}
+
+
+/* =============================================================
+   MAPA — Leaflet customizado
+   ============================================================= */
+.map-section{
+  padding-left:0; padding-right:0;
+  max-width:none;
+}
+.map-section .section-head, .map-section .map-controls{
+  max-width:var(--max);
+  margin-left:auto; margin-right:auto;
+  padding:0 var(--gutter);
+}
+.map-controls{
+  display:flex; gap:.5rem; flex-wrap:wrap;
+  margin-bottom:1.5rem;
+}
+.map-filter{
+  font-family:var(--body);
+  font-size:.7rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  padding:.55rem 1rem;
+  background:var(--paper);
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  cursor:pointer;
+  transition:all .2s ease;
+  font-weight:600;
+}
+.map-filter:hover{border-color:var(--amora); color:var(--amora)}
+.map-filter.active{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+
+#map{
+  width:100%; height:560px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:var(--wood);
+  filter:saturate(.85) contrast(.95);
+}
+.leaflet-popup-content-wrapper{
+  background:var(--paper);
+  border-radius:2px;
+  border:1px solid var(--line);
+  box-shadow:0 12px 32px -8px rgba(60,40,30,.25);
+}
+.leaflet-popup-tip{background:var(--paper)}
+.leaflet-popup-content{
+  font-family:var(--body);
+  margin:.9rem 1rem;
+  color:var(--ink);
+  font-size:.85rem;
+}
+.leaflet-popup-content .pop-title{
+  font-family:var(--display);
+  font-size:1.1rem;
+  font-weight:500;
+  color:var(--ink);
+  margin-bottom:.25rem;
+  display:block;
+}
+.leaflet-popup-content .pop-cat{
+  font-size:.66rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--amora);
+  font-weight:600;
+  margin-bottom:.5rem;
+}
+.leaflet-popup-content .pop-desc{
+  font-size:.82rem; color:var(--ink-soft); line-height:1.45;
+}
+
+/* Custom markers via divIcon */
+.pin{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;
+  border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);
+  border:2px solid var(--paper);
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
+  font-family:var(--display);
+  font-weight:600;
+  font-size:.75rem;
+  color:var(--paper);
+}
+.pin span{transform:rotate(45deg)}
+.pin.hotel{background:var(--ink)}
+.pin.rest{background:var(--amora)}
+.pin.wine{background:var(--sage-deep)}
+.pin.beach{background:var(--sky)}
+.pin.sight{background:var(--mustard-deep)}
+.pin.shop{background:var(--terra-deep)}
+
+/* =============================================================
+   VOOS — Cards horizontais estilo bilhete
+   ============================================================= */
+.flights{background:var(--paper)}
+.flight-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.flight-card{
+  background:var(--paper-warm);
+  border:1px dashed var(--line);
+  padding:1.5rem;
+  position:relative;
+  display:flex; flex-direction:column; gap:1rem;
+}
+.flight-card::before, .flight-card::after{
+  content:'';
+  position:absolute;
+  width:14px; height:14px;
+  background:var(--paper);
+  border:1px dashed var(--line);
+  border-radius:50%;
+  top:50%;
+}
+.flight-card::before{left:-8px; transform:translateY(-50%)}
+.flight-card::after{right:-8px; transform:translateY(-50%)}
+
+.flight-head{
+  display:flex; justify-content:space-between; align-items:baseline;
+  border-bottom:1px solid var(--line-soft);
+  padding-bottom:.75rem;
+}
+.flight-code{
+  font-family:var(--display);
+  font-size:.85rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--amora);
+  font-weight:600;
+}
+.flight-date{
+  font-family:var(--body);
+  font-size:.7rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--ink-mute);
+  font-weight:600;
+}
+.flight-route{
+  display:flex; align-items:center; gap:1rem;
+  font-family:var(--display);
+}
+.flight-route .city{
+  font-size:1.5rem; font-weight:400; line-height:1; color:var(--ink);
+  letter-spacing:-.01em;
+}
+.flight-route .arrow{flex:1; height:1px; background:var(--ink); position:relative}
+.flight-route .arrow::after{
+  content:'✈'; position:absolute; right:-3px; top:50%; transform:translateY(-50%);
+  font-size:.9rem; color:var(--amora); background:var(--paper-warm); padding:0 .3rem;
+}
+.flight-info{
+  display:flex; justify-content:space-between;
+  font-size:.78rem; color:var(--ink-soft);
+}
+.flight-info .col .lbl{
+  font-size:.65rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-mute); margin-bottom:.15rem; font-weight:600;
+}
+.flight-info .col .v{
+  font-family:var(--display); font-size:1.05rem; font-weight:500; color:var(--ink);
+}
+
+/* =============================================================
+   HOTÉIS
+   ============================================================= */
+.hotels{background:var(--paper-warm); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft)}
+
+.hotel-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:1.5rem;
+}
+.hotel-card{
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+.hotel-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px -16px rgba(60,40,30,.25);
+}
+.hotel-img{
+  height:200px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  padding:1.25rem;
+}
+.hotel-img.lisbon-1{
+  background:
+    linear-gradient(135deg, transparent 40%, rgba(0,0,0,.35) 100%),
+    linear-gradient(180deg, var(--terra) 0%, var(--amora) 100%);
+}
+.hotel-img.evora{
+  background:
+    linear-gradient(135deg, transparent 40%, rgba(0,0,0,.4) 100%),
+    linear-gradient(180deg, var(--sage) 0%, var(--sage-dark) 100%);
+}
+.hotel-img.lisbon-2{
+  background:
+    linear-gradient(135deg, transparent 40%, rgba(0,0,0,.35) 100%),
+    linear-gradient(180deg, var(--mustard) 0%, var(--mustard-deep) 50%, var(--terra-deep) 100%);
+}
+
+.hotel-img .h-num{
+  position:absolute; top:1rem; right:1rem;
+  font-family:var(--display);
+  font-size:3.5rem; font-style:italic; font-weight:300;
+  color:var(--paper); opacity:.55;
+  line-height:1; letter-spacing:-.04em;
+}
+.hotel-img .h-loc{
+  font-family:var(--body);
+  font-size:.7rem; letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--paper);
+  font-weight:600;
+  position:relative; z-index:2;
+}
+
+.hotel-body{padding:1.5rem; display:flex; flex-direction:column; gap:.75rem}
+.hotel-name{
+  font-family:var(--display);
+  font-size:1.6rem; font-weight:400; line-height:1.1;
+  color:var(--ink); letter-spacing:-.01em;
+}
+.hotel-meta{
+  display:flex; gap:1rem; flex-wrap:wrap;
+  font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+  padding:.6rem 0;
+}
+.hotel-addr{font-size:.85rem; color:var(--ink-soft); font-style:italic}
+.hotel-desc{font-size:.88rem; color:var(--ink-soft); line-height:1.55}
+
+/* =============================================================
+   TIMELINE — Strip horizontal
+   ============================================================= */
+.timeline{background:var(--ink); color:var(--paper); border-top:1px solid var(--ink-soft); border-bottom:1px solid var(--ink-soft)}
+.timeline .section-title{color:var(--paper)}
+.timeline .section-title em{color:var(--mustard)}
+.timeline .section-number, .timeline .section-lede{color:var(--wood-deep)}
+.timeline .section-number::before{background:var(--mustard)}
+
+.tl-strip{
+  display:flex;
+  gap:.5rem;
+  overflow-x:auto;
+  padding-bottom:1rem;
+  scrollbar-width:thin;
+}
+.tl-strip::-webkit-scrollbar{height:6px}
+.tl-strip::-webkit-scrollbar-track{background:var(--ink-soft)}
+.tl-strip::-webkit-scrollbar-thumb{background:var(--mustard)}
+
+.tl-day{
+  flex:0 0 auto;
+  width:148px;
+  background:var(--ink-soft);
+  border:1px solid #5C5849;
+  padding:1rem;
+  display:flex; flex-direction:column; gap:.4rem;
+  transition:all .2s ease;
+  cursor:pointer;
+}
+.tl-day:hover{background:var(--sage-dark); border-color:var(--mustard)}
+.tl-day .dow{
+  font-size:.65rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--wood-deep); font-weight:600;
+}
+.tl-day .date{
+  font-family:var(--display);
+  font-size:1.7rem; font-weight:400; line-height:1;
+  color:var(--paper);
+  letter-spacing:-.02em;
+}
+.tl-day .date em{font-style:italic; color:var(--mustard); font-weight:300}
+.tl-day .city{
+  font-size:.75rem; color:var(--wood);
+  margin-top:.5rem; line-height:1.3;
+}
+.tl-day .tag{
+  display:inline-block; font-size:.6rem; letter-spacing:.15em;
+  text-transform:uppercase;
+  background:var(--mustard); color:var(--ink);
+  padding:.15rem .4rem;
+  margin-top:.25rem; font-weight:700;
+  align-self:flex-start;
+}
+.tl-day .tag.beach{background:var(--sky); color:var(--paper)}
+.tl-day .tag.wine{background:var(--amora); color:var(--paper)}
+.tl-day .tag.travel{background:var(--wood-deep); color:var(--ink)}
+
+/* =============================================================
+   DIA A DIA — Itinerary
+   ============================================================= */
+.itinerary{background:var(--paper)}
+
+.day{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:clamp(1.5rem, 4vw, 3rem);
+  padding:clamp(2rem, 4vw, 3rem) 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.day:last-child{border-bottom:none}
+
+.day-aside{
+  display:flex; flex-direction:column; gap:.5rem;
+  position:sticky; top:5rem; align-self:start;
+  height:fit-content;
+}
+
+.day-num{
+  font-family:var(--display);
+  font-size:5rem; font-weight:300; font-style:italic;
+  line-height:.85; color:var(--amora);
+  letter-spacing:-.04em;
+}
+.day-num .small{font-size:1rem; font-style:normal; color:var(--ink-mute); display:block; letter-spacing:.2em; text-transform:uppercase; font-weight:600; margin-top:.5rem}
+
+.day-date{
+  font-family:var(--body);
+  font-size:.7rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+}
+.day-loc{
+  font-family:var(--display);
+  font-size:1.15rem; font-weight:500;
+  color:var(--ink);
+  border-top:1px solid var(--line-soft);
+  padding-top:.6rem;
+}
+
+.day-body{display:flex; flex-direction:column; gap:1.5rem}
+.day-headline{
+  font-family:var(--display);
+  font-size:clamp(1.5rem, 3vw, 2.1rem);
+  font-weight:400; line-height:1.15;
+  color:var(--ink); letter-spacing:-.02em;
+}
+.day-headline em{font-style:italic; color:var(--sage-deep)}
+
+.day-intro{
+  font-family:var(--display);
+  font-size:1.05rem; font-style:italic;
+  color:var(--ink-soft); line-height:1.55;
+  max-width:62ch;
+}
+
+/* Time block */
+.block{
+  display:grid;
+  grid-template-columns:90px 1fr;
+  gap:1.25rem;
+  padding:1.25rem 0;
+  border-top:1px dashed var(--line-soft);
+}
+.block:first-of-type{border-top:1px solid var(--line)}
+.block .when{
+  font-family:var(--display);
+  font-size:.78rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--amora);
+  font-weight:600;
+  font-style:italic;
+  padding-top:.15rem;
+}
+.block .what{display:flex; flex-direction:column; gap:.5rem}
+.block .what .ttl{
+  font-family:var(--display);
+  font-size:1.2rem; font-weight:500;
+  color:var(--ink); line-height:1.25;
+  letter-spacing:-.005em;
+}
+.block .what .ttl .badge{
+  display:inline-block;
+  font-family:var(--body);
+  font-size:.6rem; letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+  vertical-align:middle;
+  padding:.15rem .4rem;
+  margin-left:.4rem;
+  background:var(--sage-deep); color:var(--paper);
+}
+.block .what .ttl .badge.warn{background:var(--terra-deep)}
+.block .what .ttl .badge.cash{background:var(--mustard); color:var(--ink)}
+.block .what .desc{font-size:.93rem; color:var(--ink-soft); line-height:1.55}
+.block .what .meta-line{
+  display:flex; gap:1.25rem; flex-wrap:wrap;
+  font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+  padding-top:.25rem;
+}
+.block .what .pick{
+  background:var(--wood);
+  border-left:3px solid var(--amora);
+  padding:.7rem 1rem;
+  font-size:.85rem;
+  color:var(--ink-soft);
+  margin-top:.25rem;
+}
+.block .what .pick strong{color:var(--ink); font-family:var(--display); font-weight:500}
+.block .what .note{
+  font-family:var(--hand);
+  font-size:1.05rem;
+  color:var(--amora);
+  font-weight:500;
+  padding-top:.3rem;
+  display:flex; gap:.5rem; align-items:flex-start;
+}
+.block .what .note::before{content:'→'; font-family:var(--display); color:var(--amora); font-weight:600}
+
+/* Mobile day */
+@media (max-width:720px){
+  .day{grid-template-columns:1fr; gap:1rem}
+  .day-aside{flex-direction:row; align-items:baseline; position:static; gap:1rem; flex-wrap:wrap}
+  .day-num{font-size:3rem}
+  .block{grid-template-columns:1fr; gap:.5rem}
+  .block .when{font-size:.85rem}
+}
+
+
+/* =============================================================
+   GUIAS DE BAIRRO — Mini guides
+   ============================================================= */
+.guides{background:var(--paper-warm)}
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(310px, 1fr));
+  gap:1.5rem;
+}
+.guide-card{
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  padding:1.75rem;
+  display:flex; flex-direction:column; gap:1rem;
+  position:relative;
+  overflow:hidden;
+}
+.guide-card::before{
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:6px;
+  background:linear-gradient(90deg, var(--amora), var(--mustard), var(--sage));
+}
+.guide-head{display:flex; justify-content:space-between; align-items:baseline; gap:1rem}
+.guide-name{
+  font-family:var(--display);
+  font-size:1.7rem; font-weight:400;
+  color:var(--ink); line-height:1; letter-spacing:-.02em;
+}
+.guide-name em{font-style:italic; color:var(--sage-deep)}
+.guide-city{
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+}
+.guide-tag{
+  display:inline-block;
+  font-family:var(--hand);
+  font-size:1.15rem; color:var(--amora);
+  font-weight:500;
+  transform:rotate(-1deg);
+}
+.guide-list{
+  list-style:none;
+  display:flex; flex-direction:column; gap:.6rem;
+  font-size:.9rem; color:var(--ink-soft); line-height:1.4;
+}
+.guide-list li{
+  padding-left:1.25rem; position:relative;
+}
+.guide-list li::before{
+  content:'◇'; position:absolute; left:0; top:.1rem;
+  color:var(--mustard); font-size:.8rem;
+}
+.guide-list li strong{color:var(--ink); font-family:var(--display); font-weight:500; font-size:1.0rem}
+.guide-tip{
+  background:var(--paper-warm);
+  border-left:3px solid var(--mustard);
+  padding:.7rem 1rem;
+  font-size:.85rem;
+  color:var(--ink-soft);
+  font-style:italic;
+}
+.guide-tip strong{font-family:var(--display); font-style:normal; color:var(--ink)}
+
+/* =============================================================
+   RESTAURANTES — Cards
+   ============================================================= */
+.restaurants{background:var(--paper)}
+
+.rest-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
+  gap:1.25rem;
+}
+.rest-card{
+  background:var(--paper-warm);
+  border:1px solid var(--line-soft);
+  padding:1.5rem;
+  display:flex; flex-direction:column; gap:.75rem;
+  position:relative;
+  transition:all .3s ease;
+}
+.rest-card:hover{border-color:var(--amora); transform:translateY(-2px)}
+.rest-card.confirmed::after{
+  content:'reservado';
+  position:absolute; top:1rem; right:1rem;
+  font-family:var(--body);
+  font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
+  background:var(--sage-deep); color:var(--paper);
+  padding:.2rem .5rem; font-weight:700;
+}
+.rest-card.backup::after{
+  content:'plano b';
+  position:absolute; top:1rem; right:1rem;
+  font-family:var(--body);
+  font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
+  background:var(--wood-deep); color:var(--ink);
+  padding:.2rem .5rem; font-weight:700;
+}
+.rest-card.todo::after{
+  content:'a reservar';
+  position:absolute; top:1rem; right:1rem;
+  font-family:var(--body);
+  font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
+  background:var(--terra-deep); color:var(--paper);
+  padding:.2rem .5rem; font-weight:700;
+}
+.rest-name{
+  font-family:var(--display);
+  font-size:1.4rem; font-weight:500;
+  color:var(--ink); line-height:1.1;
+  letter-spacing:-.01em;
+  padding-right:5rem;
+}
+.rest-cat{
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--amora); font-weight:700;
+}
+.rest-meta{
+  display:flex; gap:.75rem; flex-wrap:wrap;
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+  border-top:1px solid var(--line-soft);
+  padding-top:.65rem;
+}
+.rest-meta .price{color:var(--ink); font-weight:700}
+.rest-desc{font-size:.85rem; color:var(--ink-soft); line-height:1.5}
+.rest-picks{
+  background:var(--paper);
+  border-left:3px solid var(--sage);
+  padding:.6rem .85rem;
+  font-size:.83rem;
+  color:var(--ink-soft);
+}
+.rest-picks strong{color:var(--ink); font-family:var(--display); font-weight:500; display:block; margin-bottom:.2rem; font-size:.7rem; letter-spacing:.15em; text-transform:uppercase}
+.rest-picks ul{list-style:none}
+.rest-picks li{padding:.12rem 0; position:relative}
+
+/* =============================================================
+   VINÍCOLAS
+   ============================================================= */
+.wineries{
+  background:linear-gradient(180deg, var(--sage-dark) 0%, #2A3424 100%);
+  color:var(--paper);
+}
+.wineries .section-title{color:var(--paper)}
+.wineries .section-title em{color:var(--mustard)}
+.wineries .section-number, .wineries .section-lede{color:var(--wood-deep)}
+.wineries .section-number::before{background:var(--mustard)}
+
+.wine-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(310px, 1fr));
+  gap:1.5rem;
+}
+.wine-card{
+  background:rgba(250,246,238,.05);
+  border:1px solid rgba(200,159,75,.3);
+  padding:1.75rem;
+  display:flex; flex-direction:column; gap:1rem;
+  backdrop-filter:blur(8px);
+  position:relative;
+}
+.wine-card.featured{
+  background:var(--paper);
+  color:var(--ink);
+  border-color:var(--mustard);
+}
+.wine-card.featured .w-name, .wine-card.featured .w-loc, .wine-card.featured .w-detail{color:var(--ink)}
+.wine-card.featured .w-cat{color:var(--amora)}
+.wine-card.featured .w-meta{color:var(--ink-mute); border-color:var(--line-soft)}
+
+.w-flag{
+  position:absolute; top:0; right:1.25rem;
+  background:var(--mustard); color:var(--ink);
+  font-family:var(--body);
+  font-size:.6rem; letter-spacing:.18em; text-transform:uppercase;
+  padding:.3rem .6rem; font-weight:700;
+}
+.w-flag.alt{background:var(--terra); color:var(--paper)}
+.w-flag.off{background:var(--ink-mute); color:var(--paper)}
+
+.w-cat{
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--mustard); font-weight:700;
+}
+.w-name{
+  font-family:var(--display);
+  font-size:1.6rem; font-weight:400;
+  color:var(--paper); line-height:1.1; letter-spacing:-.01em;
+}
+.w-name em{font-style:italic; color:var(--mustard)}
+.w-loc{
+  font-family:var(--display);
+  font-size:.95rem; font-style:italic;
+  color:var(--wood); margin-top:-.25rem;
+}
+.w-detail{font-size:.88rem; color:var(--wood); line-height:1.55}
+.w-meta{
+  display:flex; gap:1rem; flex-wrap:wrap;
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--wood-deep); font-weight:600;
+  padding-top:.65rem;
+  border-top:1px solid rgba(200,159,75,.2);
+}
+.w-meta .price{color:var(--mustard); font-weight:700}
+
+/* =============================================================
+   IBIZA — Edition completa
+   ============================================================= */
+.ibiza{
+  background:
+    radial-gradient(ellipse at top, rgba(107,140,174,.18), transparent 60%),
+    linear-gradient(180deg, var(--paper) 0%, #F0E5D0 100%);
+}
+.ibiza-cover{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:end;
+  padding:3rem 0;
+  border-bottom:1px solid var(--line);
+  margin-bottom:3rem;
+}
+.ibiza-cover .left{display:flex; flex-direction:column; gap:1rem}
+.ibiza-cover .right{
+  height:280px;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 80%, rgba(232,192,79,.4), transparent),
+    linear-gradient(180deg, var(--sky) 0%, #4A6680 60%, var(--ink) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.ibiza-cover .right::after{
+  content:'';
+  position:absolute; bottom:0; left:0; right:0;
+  height:30%;
+  background:linear-gradient(180deg, transparent, rgba(0,0,0,.3));
+}
+.ibiza-cover .right::before{
+  content:'';
+  position:absolute; top:30%; right:20%;
+  width:60px; height:60px; border-radius:50%;
+  background:radial-gradient(circle, var(--sun) 30%, rgba(232,192,79,.4) 60%, transparent 80%);
+  box-shadow:0 0 60px rgba(232,192,79,.6);
+}
+.ibiza-cover .lede{
+  font-family:var(--display);
+  font-size:clamp(1.1rem, 1.8vw, 1.4rem);
+  font-style:italic;
+  color:var(--ink-soft);
+  line-height:1.5;
+}
+@media (max-width:760px){.ibiza-cover{grid-template-columns:1fr}.ibiza-cover .right{height:160px}}
+
+.ibiza-tabs{
+  display:flex; gap:0;
+  border-bottom:1px solid var(--line);
+  margin-bottom:2.5rem;
+  flex-wrap:wrap;
+}
+.ibiza-tab{
+  font-family:var(--display);
+  font-size:.85rem; letter-spacing:.18em; text-transform:uppercase;
+  padding:.85rem 1.5rem;
+  border:none; background:none;
+  color:var(--ink-mute);
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  margin-bottom:-1px;
+  font-weight:500;
+  transition:all .2s ease;
+}
+.ibiza-tab:hover{color:var(--amora)}
+.ibiza-tab.active{color:var(--amora); border-bottom-color:var(--amora)}
+
+.ibiza-panel{display:none}
+.ibiza-panel.active{display:block}
+
+.ibiza-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
+  gap:1.25rem;
+}
+
+.i-card{
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  padding:1.5rem;
+  display:flex; flex-direction:column; gap:.75rem;
+  position:relative;
+  transition:all .3s ease;
+}
+.i-card:hover{transform:translateY(-3px); box-shadow:0 16px 36px -16px rgba(60,40,30,.2)}
+.i-vibe{
+  font-family:var(--hand);
+  font-size:1.15rem; color:var(--amora);
+  font-weight:500;
+  transform:rotate(-1deg);
+  align-self:flex-start;
+}
+.i-name{
+  font-family:var(--display);
+  font-size:1.45rem; font-weight:500;
+  color:var(--ink); line-height:1.1;
+  letter-spacing:-.01em;
+}
+.i-loc{
+  font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+}
+.i-desc{font-size:.87rem; color:var(--ink-soft); line-height:1.5}
+.i-meta{
+  display:flex; gap:.85rem; flex-wrap:wrap;
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+  border-top:1px solid var(--line-soft); padding-top:.65rem;
+}
+.i-meta .price{color:var(--amora); font-weight:700}
+
+/* =============================================================
+   ORÇAMENTO — Tabela editorial
+   ============================================================= */
+.budget{background:var(--ink); color:var(--paper)}
+.budget .section-title{color:var(--paper)}
+.budget .section-title em{color:var(--mustard)}
+.budget .section-number, .budget .section-lede{color:var(--wood-deep)}
+.budget .section-number::before{background:var(--mustard)}
+
+.b-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:2.5rem;
+  font-family:var(--body);
+}
+.b-table thead{border-bottom:2px solid var(--mustard)}
+.b-table th{
+  text-align:left;
+  padding:.75rem 1rem;
+  font-family:var(--display);
+  font-size:.78rem; letter-spacing:.18em; text-transform:uppercase;
+  font-weight:600; color:var(--mustard);
+  font-style:italic;
+}
+.b-table th.num{text-align:right}
+.b-table td{
+  padding:.85rem 1rem;
+  border-bottom:1px solid rgba(200,159,75,.15);
+  font-size:.92rem;
+  color:var(--wood);
+}
+.b-table td.label{font-family:var(--display); font-size:1.05rem; color:var(--paper); font-weight:400; letter-spacing:-.005em}
+.b-table td.num{text-align:right; font-family:var(--display); font-size:1.05rem; color:var(--paper); font-weight:500}
+.b-table td.note{font-size:.78rem; color:var(--wood-deep); font-style:italic}
+.b-table tfoot td{
+  border-bottom:none;
+  border-top:2px solid var(--mustard);
+  padding-top:1rem;
+  font-family:var(--display);
+  font-size:1.3rem; font-weight:500;
+  color:var(--mustard); letter-spacing:-.01em;
+}
+.b-table tfoot td.label{color:var(--mustard)}
+.b-table tfoot td em{font-style:italic}
+
+.b-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:1.5rem;
+  margin-top:1.5rem;
+}
+.b-card{
+  background:rgba(250,246,238,.06);
+  border:1px solid rgba(200,159,75,.25);
+  padding:1.5rem;
+  backdrop-filter:blur(6px);
+}
+.b-card .h{
+  font-family:var(--display);
+  font-size:1.2rem; color:var(--paper); margin-bottom:.5rem; font-weight:500;
+}
+.b-card .v{
+  font-family:var(--display);
+  font-size:2.4rem; font-weight:300; color:var(--mustard); line-height:1;
+  letter-spacing:-.02em; margin:.5rem 0;
+}
+.b-card .v em{font-style:italic}
+.b-card .d{font-size:.83rem; color:var(--wood); line-height:1.5}
+
+@media (max-width:640px){
+  .b-table th, .b-table td{padding:.6rem .4rem; font-size:.85rem}
+  .b-table td.label{font-size:.95rem}
+}
+
+/* =============================================================
+   PENDÊNCIAS / TIPS
+   ============================================================= */
+.todos{background:var(--paper-warm); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft)}
+
+.todo-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+@media (max-width:720px){.todo-grid{grid-template-columns:1fr}}
+
+.todo-col h3{
+  font-family:var(--display);
+  font-size:1.4rem; font-weight:500;
+  margin-bottom:1rem;
+  padding-bottom:.5rem;
+  border-bottom:1px solid var(--line);
+  display:flex; align-items:center; gap:.5rem;
+}
+.todo-col.priority h3{color:var(--amora)}
+.todo-col.priority h3::before{
+  content:''; display:inline-block; width:10px; height:10px;
+  background:var(--amora); border-radius:50%;
+}
+.todo-col.regular h3::before{
+  content:''; display:inline-block; width:10px; height:10px;
+  background:var(--sage); border-radius:50%;
+}
+
+.todo-list{list-style:none; display:flex; flex-direction:column; gap:.85rem}
+.todo-list li{
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  padding:.85rem 1rem;
+  display:flex; gap:.85rem;
+  font-size:.92rem; color:var(--ink-soft); line-height:1.45;
+}
+.todo-list li::before{
+  content:''; display:inline-block; width:14px; height:14px;
+  border:1.5px solid var(--ink-mute); border-radius:2px;
+  flex-shrink:0; margin-top:.2rem;
+}
+.todo-list li strong{color:var(--ink); font-family:var(--display); font-weight:500}
+
+.tips{background:var(--paper)}
+.tip-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:1.5rem;
+}
+.tip-card{
+  border-top:3px solid var(--amora);
+  padding:1.5rem 0;
+}
+.tip-card.alt{border-top-color:var(--sage)}
+.tip-card.alt2{border-top-color:var(--mustard)}
+.tip-card.alt3{border-top-color:var(--terra)}
+.tip-card h4{
+  font-family:var(--display);
+  font-size:1.3rem; font-weight:500;
+  color:var(--ink); margin-bottom:.5rem;
+  letter-spacing:-.01em;
+}
+.tip-card p{font-size:.9rem; color:var(--ink-soft); line-height:1.6}
+.tip-card p + p{margin-top:.6rem}
+.tip-card strong{color:var(--ink); font-family:var(--display); font-weight:500}
+
+/* =============================================================
+   FOOTER
+   ============================================================= */
+footer{
+  background:var(--ink); color:var(--wood);
+  padding:3rem var(--gutter);
+  text-align:center;
+}
+footer .f-title{
+  font-family:var(--display);
+  font-size:2.5rem; font-style:italic; font-weight:300;
+  color:var(--mustard);
+  margin-bottom:.5rem;
+  letter-spacing:-.02em;
+}
+footer .f-sub{
+  font-family:var(--hand);
+  font-size:1.5rem; color:var(--wood);
+}
+footer .f-meta{
+  font-size:.7rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--wood-deep); margin-top:2rem; font-weight:600;
+}
+
+/* =============================================================
+   LUGARES — Cards com ilustração SVG (estilo guidebook)
+   ============================================================= */
+.places-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:1.5rem;
+  margin-top:1.5rem;
+}
+.place-card{
+  background:var(--paper);
+  border:1px solid var(--line-soft);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+.place-card:hover{
+  border-color:var(--amora);
+  transform:translateY(-3px);
+  box-shadow:0 20px 40px -16px rgba(60,40,30,.2);
+}
+.place-illu{
+  height:180px;
+  position:relative;
+  display:flex; align-items:flex-end;
+  padding:1rem;
+  overflow:hidden;
+}
+.place-illu svg{
+  position:absolute;
+  inset:0;
+  width:100%; height:100%;
+  display:block;
+}
+.place-illu::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(42,40,35,.55) 100%);
+  pointer-events:none;
+}
+.place-illu .num{
+  text-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+.place-illu .badge-img{
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(4px);
+}
+.place-illu .num{
+  position:absolute; top:.85rem; left:1rem;
+  font-family:var(--display);
+  font-style:italic; font-weight:300;
+  font-size:1.05rem; color:var(--paper);
+  background:rgba(42,40,35,.7);
+  padding:.15rem .55rem;
+  letter-spacing:.04em;
+}
+.place-illu .badge-img{
+  position:absolute; bottom:.85rem; right:1rem;
+  font-family:var(--body);
+  font-size:.58rem; letter-spacing:.18em; text-transform:uppercase;
+  background:var(--paper); color:var(--ink);
+  padding:.25rem .5rem; font-weight:700;
+}
+.place-body{padding:1.25rem; display:flex; flex-direction:column; gap:.5rem; flex:1}
+.place-cat{
+  font-size:.62rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--amora); font-weight:700;
+}
+.place-name{
+  font-family:var(--display);
+  font-size:1.4rem; font-weight:500;
+  line-height:1.1; color:var(--ink);
+  letter-spacing:-.01em;
+}
+.place-name em{font-style:italic; color:var(--sage-deep)}
+.place-desc{font-size:.86rem; color:var(--ink-soft); line-height:1.5; flex:1}
+.place-tip{
+  font-family:var(--hand);
+  font-size:1rem; color:var(--amora);
+  margin-top:.4rem; line-height:1.2;
+}
+
+/* District anchor headers */
+.district-bar{
+  display:flex; align-items:center; gap:1rem;
+  margin:2.5rem 0 1rem;
+  padding-bottom:.75rem;
+  border-bottom:1px solid var(--line);
+}
+.district-bar:first-of-type{margin-top:1rem}
+.district-bar .d-eyebrow{
+  font-family:var(--hand);
+  font-size:1.4rem; color:var(--amora);
+  font-weight:500;
+  transform:rotate(-1.5deg);
+}
+.district-bar .d-name{
+  font-family:var(--display);
+  font-size:clamp(1.8rem, 3vw, 2.4rem);
+  font-weight:400;
+  color:var(--ink); line-height:1;
+  letter-spacing:-.02em;
+}
+.district-bar .d-name em{font-style:italic; color:var(--sage-deep)}
+.district-bar .d-city{
+  margin-left:auto;
+  font-size:.66rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--ink-mute); font-weight:600;
+}
+
+/* =============================================================
+   PRINT
+   ============================================================= */
+@media print{
+  body{font-size:11pt; background:white; color:black}
+  .toc, .ibiza-tabs{display:none}
+  .hero{min-height:auto; padding:2cm}
+  section{padding:1cm 0; max-width:100%; page-break-inside:avoid}
+  #map{display:none}
+  .map-section{display:none}
+  .day{page-break-inside:avoid}
+  .ibiza-panel{display:block !important}
+  .ibiza-panel + .ibiza-panel{margin-top:2rem}
+}
+
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <a href="#briefing">Resumo</a>
+  <a href="#mapa">Mapa</a>
+  <a href="#voos">Voos</a>
+  <a href="#hoteis">Hotéis</a>
+  <a href="#tl">13 Dias</a>
+  <a href="#dia-a-dia">Roteiro</a>
+  <a href="#bairros">Lugares</a>
+  <a href="#mesa">Restaurantes</a>
+  <a href="#vinhos">Adega</a>
+  <a href="#ibiza">Ibiza</a>
+  <a href="#orca">Orçamento</a>
+  <a href="#pend">Checklist</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<header class="hero">
+  <div class="hero-top">
+    <div class="left">
+      <span>Caderno de Viagem</span>
+      <span class="divider"></span>
+      <span>Volume 01</span>
+    </div>
+    <div class="right">Edição privada · Ana &amp; Bruno</div>
+  </div>
+
+  <div class="hero-center">
+    <span class="eyebrow">Onze de junho a vinte e três</span>
+    <h1 class="hero-title">
+      Portugal <span class="amp">&amp;</span><br>
+      <span class="second">Ibiza</span>
+    </h1>
+    <div class="hero-sub">
+      <span class="dates">Verão de 2026 · treze dias e doze noites</span>
+      <span class="meta">Gastronomia · Praia · Vinho</span>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-stats">
+      <div class="stat"><span class="n">3</span><span class="l">Cidades</span></div>
+      <div class="stat"><span class="n">3</span><span class="l">Hotéis</span></div>
+      <div class="stat"><span class="n">4</span><span class="l">Voos</span></div>
+      <div class="stat"><span class="n">2</span><span class="l">Noites de clube</span></div>
+      <div class="stat"><span class="n">1</span><span class="l">Vinícola</span></div>
+    </div>
+    <div class="hero-signature">Lisboa · Évora · Eivissa</div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ BRIEFING -->
+<section id="briefing" class="briefing">
+  <div class="section-head">
+    <span class="section-number">I · Resumo</span>
+    <h2 class="section-title">Resumo da <em>viagem</em></h2>
+    <p class="section-lede">Uma leitura rápida do que estrutura os treze dias antes de mergulhar no detalhe. Um casal, três geografias, dois ritmos: o sul português contemplativo e o branco mediterrâneo solar.</p>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="brief-grid">
+    <div class="brief-card">
+      <div class="label">Saída · São Paulo</div>
+      <div class="val">11 jun · <em>17h05</em></div>
+      <div class="note">LATAM LA8146 · noite a bordo</div>
+    </div>
+    <div class="brief-card">
+      <div class="label">Retorno · Lisboa</div>
+      <div class="val">23 jun · <em>14h50</em></div>
+      <div class="note">LATAM JJ8149 · chegada 20h55</div>
+    </div>
+    <div class="brief-card accent">
+      <div class="label">Vibe</div>
+      <div class="val">Ritmo <em>confortável</em></div>
+      <div class="note">Bom hotel, boa mesa, vinho, mar — nada apressado</div>
+    </div>
+    <div class="brief-card">
+      <div class="label">Câmbio operacional</div>
+      <div class="val">Euro &middot; <em>cartão first</em></div>
+      <div class="note">€600–800 cash para distribuir entre as três escalas</div>
+    </div>
+    <div class="brief-card">
+      <div class="label">Orçamento estimado</div>
+      <div class="val">€3.700 <em>– €4.000</em></div>
+      <div class="note">Realista, com folga de €500 para compras</div>
+    </div>
+    <div class="brief-card">
+      <div class="label">Idioma</div>
+      <div class="val">PT · ES · <em>EN</em></div>
+      <div class="note">Português em Lisboa e Évora · espanhol em Ibiza</div>
+    </div>
+    <div class="brief-card">
+      <div class="label">Clima esperado</div>
+      <div class="val">22–28 °C</div>
+      <div class="note">Lisboa fresca à noite · Ibiza quente e seca · Alentejo seco e amplo</div>
+    </div>
+    <div class="brief-card">
+      <div class="label">Fuso vs. SP</div>
+      <div class="val">+ 4 horas</div>
+      <div class="note">Horário de verão europeu</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ MAPA -->
+<section id="mapa" class="map-section">
+  <div class="section-head">
+    <span class="section-number">II · Mapa</span>
+    <h2 class="section-title">Mapa da <em>viagem</em></h2>
+    <p class="section-lede">Hotéis, mesas, vinícolas, praias, miradouros — todos os pontos georreferenciados, agrupados por categoria. Filtre para focar no que importa.</p>
+  </div>
+
+  <div class="map-controls">
+    <button class="map-filter active" data-cat="all">Todos</button>
+    <button class="map-filter" data-cat="hotel">Hotéis</button>
+    <button class="map-filter" data-cat="rest">Restaurantes</button>
+    <button class="map-filter" data-cat="wine">Vinícolas</button>
+    <button class="map-filter" data-cat="beach">Praias &amp; Beach Clubs</button>
+    <button class="map-filter" data-cat="sight">Pontos &amp; Miradouros</button>
+    <button class="map-filter" data-cat="shop">Lojas</button>
+  </div>
+
+  <div id="map"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ VOOS -->
+<section id="voos" class="flights">
+  <div class="section-head">
+    <span class="section-number">III · Voos</span>
+    <h2 class="section-title">Os quatro <em>voos</em></h2>
+    <p class="section-lede">Confirmados, com assentos selecionados. Pontas de São Paulo na LATAM, transferências entre Lisboa e Ibiza pela TAP.</p>
+  </div>
+
+  <div class="flight-grid">
+    <div class="flight-card">
+      <div class="flight-head">
+        <span class="flight-code">LATAM · LA8146</span>
+        <span class="flight-date">11 Jun · Qui</span>
+      </div>
+      <div class="flight-route">
+        <span class="city">GRU</span>
+        <span class="arrow"></span>
+        <span class="city">LIS</span>
+      </div>
+      <div class="flight-info">
+        <div class="col"><div class="lbl">Saída</div><div class="v">17:05</div></div>
+        <div class="col"><div class="lbl">Chegada</div><div class="v">06:35<sup>+1</sup></div></div>
+        <div class="col"><div class="lbl">Assentos</div><div class="v">5E · 5F</div></div>
+      </div>
+    </div>
+
+    <div class="flight-card">
+      <div class="flight-head">
+        <span class="flight-code">TAP · TP1142</span>
+        <span class="flight-date">13 Jun · Sáb</span>
+      </div>
+      <div class="flight-route">
+        <span class="city">LIS</span>
+        <span class="arrow"></span>
+        <span class="city">IBZ</span>
+      </div>
+      <div class="flight-info">
+        <div class="col"><div class="lbl">Saída</div><div class="v">11:20</div></div>
+        <div class="col"><div class="lbl">Chegada</div><div class="v">14:05</div></div>
+        <div class="col"><div class="lbl">Assentos</div><div class="v">04A · 04B</div></div>
+      </div>
+    </div>
+
+    <div class="flight-card">
+      <div class="flight-head">
+        <span class="flight-code">TAP · TP1143</span>
+        <span class="flight-date">20 Jun · Sáb</span>
+      </div>
+      <div class="flight-route">
+        <span class="city">IBZ</span>
+        <span class="arrow"></span>
+        <span class="city">LIS</span>
+      </div>
+      <div class="flight-info">
+        <div class="col"><div class="lbl">Saída</div><div class="v">15:15</div></div>
+        <div class="col"><div class="lbl">Chegada</div><div class="v">16:10</div></div>
+        <div class="col"><div class="lbl">Assentos</div><div class="v">01C · 01D</div></div>
+      </div>
+    </div>
+
+    <div class="flight-card">
+      <div class="flight-head">
+        <span class="flight-code">LATAM · JJ8149</span>
+        <span class="flight-date">23 Jun · Ter</span>
+      </div>
+      <div class="flight-route">
+        <span class="city">LIS</span>
+        <span class="arrow"></span>
+        <span class="city">GRU</span>
+      </div>
+      <div class="flight-info">
+        <div class="col"><div class="lbl">Saída</div><div class="v">14:50</div></div>
+        <div class="col"><div class="lbl">Chegada</div><div class="v">20:55</div></div>
+        <div class="col"><div class="lbl">Assentos</div><div class="v">12A · 12B</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ HOTÉIS -->
+<section id="hoteis" class="hotels">
+  <div class="section-head">
+    <span class="section-number">IV · Hotéis</span>
+    <h2 class="section-title">Os três <em>hotéis</em></h2>
+    <p class="section-lede">Três hotéis com personalidades muito distintas: a townhouse no coração de Lisboa, o convento alentejano que vira spa, e a base ribeirinha próxima ao Time Out para encerrar a viagem.</p>
+  </div>
+
+  <div class="hotel-grid">
+    <div class="hotel-card">
+      <div class="hotel-img lisbon-1">
+        <span class="h-num">01</span>
+        <span class="h-loc">Lisboa · Baixa-Chiado</span>
+      </div>
+      <div class="hotel-body">
+        <h3 class="hotel-name">Dare Lisbon House</h3>
+        <p class="hotel-addr">Rua dos Sapateiros 135, Lisboa</p>
+        <div class="hotel-meta">
+          <span>12 → 13 Jun</span>
+          <span>1 noite</span>
+          <span>Base de chegada</span>
+        </div>
+        <p class="hotel-desc">Townhouse boutique no eixo Baixa–Chiado. Tudo a pé: Castro Atelier, Manteigaria, Rocco, lojas do Chiado. Posição ideal para o dia de chegada porque você não depende de Uber para nada do roteiro principal.</p>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-img evora">
+        <span class="h-num">02</span>
+        <span class="h-loc">Évora · Canaviais</span>
+      </div>
+      <div class="hotel-body">
+        <h3 class="hotel-name">Convento do Espinheiro</h3>
+        <p class="hotel-addr">Historic Hotel &amp; Spa · 5 km do centro de Évora</p>
+        <div class="hotel-meta">
+          <span>20 → 22 Jun</span>
+          <span>2 noites</span>
+          <span>Marriott Luxury Collection</span>
+        </div>
+        <p class="hotel-desc">Convento do século XV restaurado, com claustro original, capela, piscina exterior, spa e jardim. Foco aqui é descansar entre as escapadas a Évora histórica e às vinícolas. O restaurante interno (Divinus) é candidato natural para jantar de domingo.</p>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-img lisbon-2">
+        <span class="h-num">03</span>
+        <span class="h-loc">Lisboa · Cais do Sodré</span>
+      </div>
+      <div class="hotel-body">
+        <h3 class="hotel-name">Dare Lisbon River</h3>
+        <p class="hotel-addr">Travessa de São Paulo 5, Lisboa</p>
+        <div class="hotel-meta">
+          <span>22 → 23 Jun</span>
+          <span>1 noite</span>
+          <span>Base de retorno</span>
+        </div>
+        <p class="hotel-desc">Mesma marca da chegada, agora na zona do rio. A 5 minutos a pé do Time Out Market e bem posicionado para um café matinal no Cais do Sodré antes do voo. Boa última noite por logística mais que por roteiro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ TIMELINE STRIP -->
+<section id="tl" class="timeline">
+  <div class="section-head">
+    <span class="section-number">V · Calendário</span>
+    <h2 class="section-title">Os treze <em>dias</em></h2>
+    <p class="section-lede">A viagem inteira em uma única linha. Cada coluna é um dia — passe a vista para entender o ritmo.</p>
+  </div>
+
+  <div class="tl-strip">
+    <div class="tl-day"><div class="dow">Qui</div><div class="date">11<em>/06</em></div><div class="city">Brasil → noite a bordo</div><span class="tag travel">Voo</span></div>
+    <div class="tl-day"><div class="dow">Sex</div><div class="date">12<em>/06</em></div><div class="city">Lisboa · chegada + Belém + Chiado</div><span class="tag">Restaurantes</span></div>
+    <div class="tl-day"><div class="dow">Sáb</div><div class="date">13<em>/06</em></div><div class="city">Lisboa → Ibiza</div><span class="tag travel">Voo</span></div>
+    <div class="tl-day"><div class="dow">Dom</div><div class="date">14<em>/06</em></div><div class="city">Ibiza · família + casa</div><span class="tag beach">Praia</span></div>
+    <div class="tl-day"><div class="dow">Seg</div><div class="date">15<em>/06</em></div><div class="city">Ibiza · beach club</div><span class="tag beach">Praia</span></div>
+    <div class="tl-day"><div class="dow">Ter</div><div class="date">16<em>/06</em></div><div class="city">Ibiza · praia + sunset</div><span class="tag beach">Sunset</span></div>
+    <div class="tl-day"><div class="dow">Qua</div><div class="date">17<em>/06</em></div><div class="city">Ibiza · Formentera day trip</div><span class="tag beach">Day trip</span></div>
+    <div class="tl-day"><div class="dow">Qui</div><div class="date">18<em>/06</em></div><div class="city">Ibiza · Dalt Vila + Es Vedrà</div><span class="tag beach">Cultura</span></div>
+    <div class="tl-day"><div class="dow">Sex</div><div class="date">19<em>/06</em></div><div class="city">Ibiza · noite especial</div><span class="tag">Restaurantes</span></div>
+    <div class="tl-day"><div class="dow">Sáb</div><div class="date">20<em>/06</em></div><div class="city">Ibiza → Évora</div><span class="tag travel">Voo</span></div>
+    <div class="tl-day"><div class="dow">Dom</div><div class="date">21<em>/06</em></div><div class="city">Cartuxa + Fialho</div><span class="tag wine">Vinho</span></div>
+    <div class="tl-day"><div class="dow">Seg</div><div class="date">22<em>/06</em></div><div class="city">Évora → Lisboa final</div><span class="tag">Restaurantes</span></div>
+    <div class="tl-day"><div class="dow">Ter</div><div class="date">23<em>/06</em></div><div class="city">Lisboa → Brasil</div><span class="tag travel">Voo</span></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ DIA A DIA -->
+<section id="dia-a-dia" class="itinerary">
+  <div class="section-head">
+    <span class="section-number">VI · Roteiro</span>
+    <h2 class="section-title">Roteiro <em>dia a dia</em></h2>
+    <p class="section-lede">Treze dias narrados em detalhe, sem engessar. Cada dia é uma estrutura de sugestões com horários, mas o ritmo continua seu.</p>
+  </div>
+
+  <!-- DIA 11/06 — VOO -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">01<span class="small">de 13</span></div>
+      <div class="day-date">Qui · 11 Jun</div>
+      <div class="day-loc">Brasil → Portugal</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">A noite a bordo</h3>
+      <p class="day-intro">Saída do Guarulhos no fim da tarde. Jantar no avião, vinho, filme, dormir o quanto der. Chegada em Lisboa no início da manhã seguinte.</p>
+      <div class="block">
+        <span class="when">17h05</span>
+        <div class="what">
+          <div class="ttl">Embarque · GRU → LIS</div>
+          <div class="desc">LATAM LA8146 · assentos 5E/5F · 10h30 de voo direto.</div>
+          <div class="note">Dormir bem é o melhor presente para o dia 12.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 12/06 — LISBOA CHEGADA -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">02<span class="small">de 13</span></div>
+      <div class="day-date">Sex · 12 Jun</div>
+      <div class="day-loc">Lisboa</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">Chegada leve, <em>almoço forte</em>, jantar bonito</h3>
+      <p class="day-intro">Princípio do dia é não disputar com o jet lag. Pousar, deixar mala, café leve, Belém pela manhã, almoço em Canalha (substituto do Velho Eurico que não tinha data), tarde de Chiado sem pressa e jantar elegante de abertura em Rocco.</p>
+
+      <div class="block">
+        <span class="when">06h35</span>
+        <div class="what">
+          <div class="ttl">Pouso · Aeroporto de Lisboa</div>
+          <div class="desc">Uber até o Dare Lisbon House, 20–25 min. Check-in formal só após 14h, mas deixam guardar malas e usar lobby. Ducha rápida se quiserem.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">09h00</span>
+        <div class="what">
+          <div class="ttl">Café · Castro Atelier <span class="badge">#1 do casal musacooks</span></div>
+          <div class="desc">Pastel de nata excelente e café elegante a passos do hotel. Estratégia: só café + 1 pastel cada — sem pesar antes de Belém e antes do Canalha.</div>
+          <div class="meta-line"><span>Rua Garrett</span><span>3 min do hotel</span><span>€10 o casal</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">10h00 – 12h15</span>
+        <div class="what">
+          <div class="ttl">Manhã em Belém</div>
+          <div class="desc">Uber Chiado → Belém, ~15 min. Janela ideal de 2h30 para fazer sem correria. Não precisa entrar no Mosteiro se a fila estiver longa (e estará) — a fachada e o entorno já entregam a experiência. Caminhar pelo jardim, ver o rio, MAAT pela arquitetura.</div>
+          <div class="pick"><strong>Roteiro Belém:</strong> Mosteiro dos Jerónimos (fachada) · Jardins de Belém · orla do Tejo · MAAT (arquitetura contemporânea, entrar é opcional)</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">12h45</span>
+        <div class="what">
+          <div class="ttl">Almoço · Canalha <span class="badge">reservado</span></div>
+          <div class="desc">Rua da Junqueira 207. Portuguesa contemporânea forte, sem cair em preço Michelin. Substitui o Velho Eurico que estava com agenda fechada e oferece o mesmo tipo de pegada: comida portuguesa que se respeita, com sabor.</div>
+          <div class="pick"><strong>Para pedir (boasdegarfo):</strong>
+            <ul>
+              <li>Lula de torneira com manteiga de ovelha</li>
+              <li>Tortilha aberta de camarão e cebola</li>
+              <li>Raspado de presa de vaca arouquesa</li>
+              <li>Mousse/sobremesa</li>
+            </ul>
+          </div>
+          <div class="meta-line"><span>€35–45 por pessoa</span><span>Almoço</span><span>Cartão aceito</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">15h00 – 18h30</span>
+        <div class="what">
+          <div class="ttl">Tarde · Chiado sem pressa</div>
+          <div class="desc">Volta para a região do hotel. Banho, descanso curto, e sair para as lojas a pé. Tudo num raio de 10 minutos.</div>
+          <div class="pick"><strong>Circuito de lojas:</strong>
+            <ul>
+              <li>A Vida Portuguesa — objetos editados, sabonetes, cerâmica</li>
+              <li>Vista Alegre — porcelanas portuguesas icônicas</li>
+              <li>New BoBo Lisboa — design/lifestyle contemporâneo</li>
+              <li>Flâneur — livros, objetos com estética</li>
+              <li>Flabelus &amp; The Fitting Room — se encaixar no caminho</li>
+              <li>El Corte Inglés — opcional, mais funcional que charmoso</li>
+            </ul>
+          </div>
+          <div class="note">Gulbenkian fica como opcional se sobrar energia — jardim silencioso, mais pausa verde do que obrigação.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">18h30</span>
+        <div class="what">
+          <div class="ttl">Drink · Topo Chiado <span class="badge cash">opcional</span></div>
+          <div class="desc">Rooftop prático, próximo ao Rocco. Bom para um drink só, vista casual antes do jantar. Não precisa virar refeição.</div>
+          <div class="meta-line"><span>€14–18 por drink</span><span>~€40 o casal</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">19h30</span>
+        <div class="what">
+          <div class="ttl">Jantar · Rocco <span class="badge">reservado</span></div>
+          <div class="desc">Rua Ivens 14. Jantar bonito de abertura — italiano refinado, ambiente elegante. A "primeira noite especial" da viagem.</div>
+          <div class="pick"><strong>Para pedir:</strong>
+            <ul>
+              <li>Tagliatelle ai funghi e tartufo</li>
+              <li>Lasanha de berinjela</li>
+              <li>Tiramisù</li>
+            </ul>
+          </div>
+          <div class="meta-line"><span>€60–85 por pessoa</span><span>~€170–200 o casal com vinho</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 13/06 — LISBOA → IBIZA -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">03<span class="small">de 13</span></div>
+      <div class="day-date">Sáb · 13 Jun</div>
+      <div class="day-loc">Lisboa → Ibiza</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">Manhã leve, <em>tarde no mar</em></h3>
+      <p class="day-intro">Dia de transição. Pastel de nata na Manteigaria, talvez uma volta de 30 minutos pelo Príncipe Real se der tempo, e voo do meio-dia para Ibiza.</p>
+
+      <div class="block">
+        <span class="when">08h30</span>
+        <div class="what">
+          <div class="ttl">Café · Manteigaria <span class="badge">#2 do casal musacooks</span></div>
+          <div class="desc">Pastel de nata icônico, prático, ótimo. R. do Loreto 2, 4 minutos a pé do Dare. Empate técnico com o Castro do dia anterior.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">09h30</span>
+        <div class="what">
+          <div class="ttl">Saída para o aeroporto</div>
+          <div class="desc">Uber, ~25 min. Voo às 11h20 pela TAP, chegada Ibiza 14h05 (horários praticamente idênticos por causa do fuso).</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">14h05</span>
+        <div class="what">
+          <div class="ttl">Chegada · Ibiza</div>
+          <div class="desc">Aeroporto de Ibiza fica a 10 min do centro e 15 min de Playa d'en Bossa. Encontro com a família, casa, tarde no ritmo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IBIZA — BLOCO ÚNICO -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">04<span class="small">→ 09 / de 13</span></div>
+      <div class="day-date">Dom 14 → Sex 19 Jun</div>
+      <div class="day-loc">Ibiza · 6 dias completos</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">Casa, mar e <em>uma saída por dia</em></h3>
+      <p class="day-intro">Semana em casa com família. Refeições em casa ou no mercado se misturam com uma saída boa por dia — um beach club, um restaurante, um sunset. O detalhe completo de praias, beach clubs, restaurantes e pôr do sol está consolidado na seção <a href="#ibiza" style="border-bottom:1px solid var(--amora)">VIII · Ibiza Edition</a> abaixo.</p>
+      <div class="block">
+        <span class="when">Sugestão de ritmo</span>
+        <div class="what">
+          <div class="ttl">Como distribuir os 6 dias</div>
+          <div class="pick"><strong>Modelo recomendado:</strong>
+            <ul>
+              <li><strong>Dia familiar / casa</strong> — 2 dias do total, ritmo livre, mercado local, almoço caseiro</li>
+              <li><strong>Beach club com almoço</strong> — 2 dias, escolher entre El Chiringuito (Es Cavallet), Beso, Blue Marlin</li>
+              <li><strong>Day trip · Formentera</strong> — 1 dia, ferry de Ibiza Town, Beso ou Juan y Andrea para almoço</li>
+              <li><strong>Cultural / Dalt Vila + Es Vedrà</strong> — 1 dia para cidade velha + pôr do sol no Es Vedrà</li>
+            </ul>
+          </div>
+          <div class="note">Reservar beach clubs e restaurantes top com 1–2 semanas de antecedência no verão.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- DIA 20/06 — IBIZA → ÉVORA · chegada leve -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">10<span class="small">de 13</span></div>
+      <div class="day-date">Sáb · 20 Jun</div>
+      <div class="day-loc">Ibiza → Évora</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">Chegada calma, <em>jantar no Convento</em></h3>
+      <p class="day-intro">Voo curto às 15h15, retirada do carro, viagem de 1h30 até a propriedade. Sem passeio em Évora à noite — descanso, banho longo e jantar no próprio Convento. Domingo é o dia denso.</p>
+
+      <div class="block">
+        <span class="when">15h15 – 16h10</span>
+        <div class="what">
+          <div class="ttl">Voo · IBZ → LIS</div>
+          <div class="desc">TAP TP1143 · assentos 01C/01D. Pouso em Lisboa às 16h10.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">17h00</span>
+        <div class="what">
+          <div class="ttl">Retirada do carro alugado</div>
+          <div class="desc">Tanque cheio na saída para não perder tempo. Lisboa → Évora: 130 km, ~1h30 pela A2 + A6 (pedágio).</div>
+          <div class="meta-line"><span>Pedágio ida + volta: ~€20</span><span>Tanque: ~€60</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">19h00</span>
+        <div class="what">
+          <div class="ttl">Check-in · Convento do Espinheiro</div>
+          <div class="desc">Banho longo, descansar. Sem programa fora do hotel à noite.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">20h30</span>
+        <div class="what">
+          <div class="ttl">Jantar · Divinus (restaurante do Convento) <span class="badge warn">checar reserva</span></div>
+          <div class="desc">Restaurante interno do hotel, instalado na antiga adega do convento. Cozinha alentejana refinada, ambiente teatral em arcos de pedra. Sem dirigir, sem deslocamento, vinho à vontade — exatamente o que faz sentido depois de um voo curto e uma estrada.</div>
+          <div class="meta-line"><span>~€60–80 por pessoa</span><span>~€140 o casal com vinho</span><span>Cobrar no quarto</span></div>
+          <div class="note">Avisar a recepção quando fizer check-in para garantir mesa.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 21/06 — DOMINGO ALENTEJO -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">11<span class="small">de 13</span></div>
+      <div class="day-date">Dom · 21 Jun</div>
+      <div class="day-loc">Évora · dia cheio</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">Cartuxa, <em>Fialho</em>, Évora e Monsaraz</h3>
+      <p class="day-intro">O dia denso do bloco Alentejo. Manhã na Cartuxa, almoço de família no Fialho (você vai tentar reservar via hotel), tarde de Évora histórica a pé, fim de tarde no castelo de Monsaraz com o lago do Alqueva ao fundo. Volta para o Convento à noite, leve.</p>
+
+      <div class="block">
+        <span class="when">10h30</span>
+        <div class="what">
+          <div class="ttl">Cartuxa · Visita Sto. Inácio de Loyola <span class="badge">reservado</span></div>
+          <div class="desc">Quinta de Valbom, Estrada da Soeira, 2 km do centro de Évora. Tour no antigo refeitório dos Jesuítas (séc. XVI), uma das adegas mais respeitadas do Alentejo.</div>
+          <div class="pick"><strong>O que esperar:</strong>
+            <ul>
+              <li>Visita guiada à adega (~1h30)</li>
+              <li>Prova de 6 vinhos premium da Fundação Eugénio de Almeida</li>
+              <li>Pêra-Manca não entra na prova — perguntar na loja se há disponibilidade para compra</li>
+            </ul>
+          </div>
+          <div class="meta-line"><span>€60 por pessoa</span><span>~€120 o casal</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">12h30 – 13h00</span>
+        <div class="what">
+          <div class="ttl">Almoço · Fialho <span class="badge warn">hotel está tentando reservar</span></div>
+          <div class="desc">Travessa das Mascarenhas 16, centro histórico. Instituição alentejana desde 1945, terceira geração na cozinha. Tudo o que sai da cozinha é referência da região — perna de cabrito é o pedido óbvio.</div>
+          <div class="pick"><strong>Para pedir:</strong>
+            <ul>
+              <li>Perna de cabrito (clássico imperdível)</li>
+              <li>Espargos bravos com ovos mexidos</li>
+              <li>Cação de coentrada</li>
+              <li>Bochechas de porco preto</li>
+              <li>Encharcada de Mourão · Sericaia para finalizar</li>
+            </ul>
+          </div>
+          <div class="meta-line"><span>~€45–55 por pessoa</span><span>~€110 o casal com vinho</span></div>
+          <div class="note">Plano B se Fialho não confirmar: Botequim da Mouraria, Taberna Típica Quarta-Feira ou Cavalariça (mais moderno).</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">15h00 – 17h00</span>
+        <div class="what">
+          <div class="ttl">Évora histórica · caminhada</div>
+          <div class="desc">Tudo a pé do Fialho, distâncias curtas (Évora cabe em 30 min de caminhada). Sem agenda rígida — escolher o que apetecer entre os pontos abaixo.</div>
+          <div class="pick"><strong>Sequência sugerida:</strong>
+            <ul>
+              <li>Templo de Diana — 14 colunas romanas, ícone da cidade</li>
+              <li>Sé de Évora — catedral medieval, subir ao terraço dá vista panorâmica</li>
+              <li>Praça do Giraldo — café no chafariz, casas brancas com molduras amarelas</li>
+              <li>Capela dos Ossos — opcional, é forte</li>
+              <li>Universidade de Évora — claustro com azulejos do séc. XVI</li>
+            </ul>
+          </div>
+          <div class="meta-line"><span>~€20 entrada Sé + Capela</span><span>Sapato confortável</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">17h30</span>
+        <div class="what">
+          <div class="ttl">Estrada para Monsaraz</div>
+          <div class="desc">Évora → Monsaraz: ~45 min de carro pela paisagem alentejana — campo aberto, sobreiros, oliveiras. Estrada bonita, especialmente na luz da tarde.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">18h30 – 20h00</span>
+        <div class="what">
+          <div class="ttl">Monsaraz · castelo e pôr do sol</div>
+          <div class="desc">Vila branca minúscula amuralhada no alto de um cume rochoso. Calçada de pedra, igreja matriz, pelourinho. Subir às muralhas do castelo para a vista do lago do Alqueva e da Espanha do outro lado. Café ou taça de vinho em um dos bares da vila enquanto a luz cai.</div>
+          <div class="meta-line"><span>Entrada castelo €2</span><span>Café/vinho €15</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">21h30</span>
+        <div class="what">
+          <div class="ttl">Volta ao Convento · jantar leve ou skip</div>
+          <div class="desc">Monsaraz → Convento, ~50 min. Se ainda houver fome depois do almoço no Fialho, jantar leve no hotel (sopa, salada, queijo) ou room service. Se não, dormir cedo.</div>
+          <div class="meta-line"><span>~€50 jantar leve</span><span>ou skip</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- DIA 22/06 — LISBOA FINAL -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">12<span class="small">de 13</span></div>
+      <div class="day-date">Seg · 22 Jun</div>
+      <div class="day-loc">Évora → Lisboa</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">Volta a Lisboa, <em>Alfama e Time Out</em></h3>
+      <p class="day-intro">Manhã calma no hotel, check-out, drive de volta para Lisboa. Almoço já reservado na Taberna do Avillez, tarde de Alfama descendo até o Cais do Sodré, jantar no Time Out.</p>
+
+      <div class="block">
+        <span class="when">10h30</span>
+        <div class="what">
+          <div class="ttl">Check-out e estrada</div>
+          <div class="desc">Évora → Lisboa, ~1h30. Devolver o carro perto do hotel ou direto na zona da Avillez.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">13h00</span>
+        <div class="what">
+          <div class="ttl">Almoço · Taberna · Bairro do Avillez <span class="badge">reservado</span></div>
+          <div class="desc">Rua Nova da Trindade 18. Almoço executivo de segunda — entrou aqui porque tanto Cantinho quanto Taberna oferecem menu mais leve nessa janela. Vários espaços do chef num lugar só.</div>
+          <div class="pick"><strong>Para pedir:</strong>
+            <ul>
+              <li>Tartar de novilho com maionese de anchovas</li>
+              <li>Pão com molho de camarão</li>
+              <li>Algo do menu degustação se quiserem</li>
+            </ul>
+          </div>
+          <div class="meta-line"><span>€28–35 executivo</span><span>~€70 o casal</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">15h00</span>
+        <div class="what">
+          <div class="ttl">Check-in · Dare Lisbon River</div>
+          <div class="desc">Travessa de São Paulo 5. Deixar malas e sair leve para a tarde.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">16h00 – 19h30</span>
+        <div class="what">
+          <div class="ttl">Tarde · Alfama → Baixa → Cais do Sodré</div>
+          <div class="desc">Uber até Alfama, descer caminhando pelas ruas históricas. Lisboa final em ritmo de despedida.</div>
+          <div class="pick"><strong>Sequência sugerida:</strong>
+            <ul>
+              <li>Miradouro de Santa Luzia</li>
+              <li>Portas do Sol — outra perspectiva, café de pausa</li>
+              <li>Caminhada descendo ruas medievais</li>
+              <li>Baixa · Rua Augusta · Praça do Comércio</li>
+              <li>Cais do Sodré chegando perto do hotel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">20h00</span>
+        <div class="what">
+          <div class="ttl">Jantar · Time Out Market</div>
+          <div class="desc">Food hall enorme, mesas compartilhadas. Caótico no horário de pico — chegar perto de 19h30 evita o pior. Estratégia: pedir em 2–3 bancas e montar mini-degustação para dividir.</div>
+          <div class="pick"><strong>Bancas que valem:</strong>
+            <ul>
+              <li>Sea Me — prego de atum / peixe fresco</li>
+              <li>O Prego da Peixaria — sanduíche de atum icônico</li>
+              <li>Croqueteria — croquete de novilho</li>
+              <li>Marisqueira Azul — camarão, amêijoas</li>
+              <li>Manteigaria — pastel de nata para fechar</li>
+            </ul>
+          </div>
+          <div class="meta-line"><span>€50–70 o casal</span><span>Sem reserva</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 23/06 — VOLTA -->
+  <div class="day">
+    <div class="day-aside">
+      <div class="day-num">13<span class="small">de 13</span></div>
+      <div class="day-date">Ter · 23 Jun</div>
+      <div class="day-loc">Lisboa → Brasil</div>
+    </div>
+    <div class="day-body">
+      <h3 class="day-headline">Manhã solta, <em>voo da tarde</em></h3>
+      <p class="day-intro">Voo só às 14h50, então a manhã pode ser sem pressa. Café na zona do hotel, última caminhada no Cais do Sodré ou Praça do Comércio se houver disposição.</p>
+
+      <div class="block">
+        <span class="when">09h00 – 11h30</span>
+        <div class="what">
+          <div class="ttl">Manhã livre</div>
+          <div class="desc">Café perto do hotel, talvez uma última lojinha pequena (sabonete, azulejo, garrafa de vinho), volta pelo Cais. Se sobrar fome, almoço rápido próximo antes de seguir.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <span class="when">12h00</span>
+        <div class="what">
+          <div class="ttl">Saída para o aeroporto</div>
+          <div class="desc">Uber, 20–25 min. Voo LATAM JJ8149 às 14h50. Pouso em SP 20h55.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ LUGARES & BAIRROS -->
+<section id="bairros" class="guides">
+  <div class="section-head">
+    <span class="section-number">VII · Pontos turísticos</span>
+    <h2 class="section-title">Pontos <em>turísticos</em></h2>
+    <p class="section-lede">Cada monumento, miradouro e praça com sua ficha individual: o que ver, o que esperar e o contexto histórico ou arquitetônico. Fotos reais de fontes públicas (Wikimedia Commons e Unsplash) para os dezessete lugares — todos com licença livre.</p>
+  </div>
+
+  <!-- ─────────── BELÉM ─────────── -->
+  <div class="district-bar">
+    <span class="d-eyebrow">manhã de sexta · 12 jun</span>
+    <h3 class="d-name"><em>Belém</em></h3>
+    <span class="d-city">Lisboa · Ocidente</span>
+  </div>
+
+  <div class="places-grid">
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1761131706401-14bea90b8cda?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#E8DFC6,#C89F4B 50%,#8B7355);background-size:cover,cover;background-position:center,center;">
+        <span class="num">01</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Monumento UNESCO · séc. XVI</span>
+        <h4 class="place-name">Mosteiro dos <em>Jerónimos</em></h4>
+        <p class="place-desc">Manuelino, encomenda do rei D. Manuel I após o regresso de Vasco da Gama. A fachada labrada é o que mais impressiona — fila para entrar pode ser longa, mas o portal sul e o claustro vistos de fora já entregam a alma do lugar.</p>
+        <p class="place-tip">Chegar antes das 10h ou depois das 15h fila menor.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Torre_de_Bel%C3%A9m%2C_Lisbon%2C_Portugal.JPG/900px-Torre_de_Bel%C3%A9m%2C_Lisbon%2C_Portugal.JPG'),linear-gradient(160deg,#D4C5A0,#8B7B5E);background-size:cover,cover;background-position:center,center;">
+        <span class="num">02</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Fortificação · séc. XVI</span>
+        <h4 class="place-name">Torre de <em>Belém</em></h4>
+        <p class="place-desc">Ícone máximo de Lisboa. Construída por D. Manuel I para defender a foz do Tejo, hoje plantada na margem (antes, ficava no meio do rio). 800m a pé da Jerónimos pela orla — caminho plano e bonito.</p>
+        <p class="place-tip">Ver de fora basta; melhor a fotografia que a visita.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1525207934214-58e69a8f8a3e?w=900&q=80&fit=crop&auto=format'),linear-gradient(180deg,#F5F5F0,#E0E0DA 50%,#A8B5BD);background-size:cover,cover;background-position:center,center;">
+        <span class="num">03</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Arquitetura contemporânea · 2016</span>
+        <h4 class="place-name">M A A T</h4>
+        <p class="place-desc">Museu de Arte, Arquitetura e Tecnologia. O edifício ondulado da arquiteta britânica Amanda Levete é a estrela — telhado caminhável vira mirante para o Tejo. Entrar no museu é opcional; circular pela arquitetura é gratuito e ótima foto.</p>
+        <p class="place-tip">No caminho da Jerónimos para a Torre, fica no meio.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Padr%C3%A3o_Descobrimentos_April_2009-3c.jpg/900px-Padr%C3%A3o_Descobrimentos_April_2009-3c.jpg'),linear-gradient(180deg,#F0EBE0,#A89880);background-size:cover,cover;background-position:center,center;">
+        <span class="num">04</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Monumento · 1960</span>
+        <h4 class="place-name">Padrão dos <em>Descobrimentos</em></h4>
+        <p class="place-desc">Caravela em pedra com Infante D. Henrique à proa, seguido pelas figuras que conduziram a Era dos Descobrimentos. Pode subir ao topo para vista panorâmica de Belém e do rio. A rosa-dos-ventos no chão é mosaico icônico.</p>
+        <p class="place-tip">A 200m da Torre de Belém, faz par natural.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ─────────── CHIADO & BAIRRO ALTO ─────────── -->
+  <div class="district-bar">
+    <span class="d-eyebrow">tarde de sexta · 12 jun</span>
+    <h3 class="d-name"><em>Chiado</em> &amp; Bairro Alto</h3>
+    <span class="d-city">Lisboa · centro</span>
+  </div>
+
+  <div class="places-grid">
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1501927023255-9063be98970c?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#A4937C,#6B5D4F);background-size:cover,cover;background-position:center,center;">
+        <span class="num">05</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Ruína gótica · séc. XIV</span>
+        <h4 class="place-name">Convento do <em>Carmo</em></h4>
+        <p class="place-desc">Igreja gótica destruída no Terremoto de 1755 e deixada sem teto — os arcos abertos para o céu são uma das visões mais marcantes de Lisboa. Hoje abriga o Museu Arqueológico. Largo do Carmo, à frente, é dos mais charmosos do Chiado.</p>
+        <p class="place-tip">Fica a 5 min do hotel Dare. Pausa elegante no meio da tarde.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1585208798174-6cedd86e019a?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#E8D5A0,#C89F4B 60%,#8B6F3E);background-size:cover,cover;background-position:center,center;">
+        <span class="num">06</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Eixo comercial · séc. XVIII</span>
+        <h4 class="place-name">Rua <em>Garrett</em></h4>
+        <p class="place-desc">Espinha dorsal do Chiado, com calçada portuguesa, cafés históricos (A Brasileira com a estátua de Pessoa), livrarias e as principais lojas — A Vida Portuguesa, Vista Alegre, Flâneur estão todas aqui ou no entorno imediato.</p>
+        <p class="place-tip">Fim de tarde com luz dourada é o melhor momento.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#A8B89B,#6B7A5A);background-size:cover,cover;background-position:center,center;">
+        <span class="num">07</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Bairro design · jardim 1860</span>
+        <h4 class="place-name">Príncipe <em>Real</em></h4>
+        <p class="place-desc">Subindo do Chiado, o ar muda: lojas de design, concept stores, restaurantes mais modernos (Kureiji, Lupita, Tapisco). No centro do jardim, um cedro centenário de copa imensa amparada por estrutura de ferro — sentar embaixo dele virou ritual.</p>
+        <p class="place-tip">Bom para a tarde de sexta se ainda houver energia.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ─────────── ALFAMA & CASTELO ─────────── -->
+  <div class="district-bar">
+    <span class="d-eyebrow">tarde de segunda · 22 jun</span>
+    <h3 class="d-name"><em>Alfama</em> &amp; Castelo</h3>
+    <span class="d-city">Lisboa · oriente medieval</span>
+  </div>
+
+  <div class="places-grid">
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1644773525278-7d3a3036ca39?w=900&q=80&fit=crop&auto=format'),linear-gradient(180deg,#E8B894,#C97F5B 60%,#8B5A3C);background-size:cover,cover;background-position:center,center;">
+        <span class="num">08</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Miradouro · azulejos</span>
+        <h4 class="place-name">Miradouro de <em>Santa Luzia</em></h4>
+        <p class="place-desc">Pequeno terraço com pérgula coberta de buganvílias, painéis de azulejos do séc. XVIII representando a Lisboa pré-terremoto, e uma vista perfeita dos telhados da Alfama caindo no Tejo. Banco para sentar, sem aglomeração de turista.</p>
+        <p class="place-tip">Começar a tarde de Alfama por aqui. Uber até a porta.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1625223181444-128aab274266?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#B8AB95,#5C5147);background-size:cover,cover;background-position:center,center;">
+        <span class="num">09</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Catedral românica · 1147</span>
+        <h4 class="place-name">Sé de <em>Lisboa</em></h4>
+        <p class="place-desc">A mais antiga igreja da cidade, construída sobre a mesquita após a Reconquista de D. Afonso Henriques. As duas torres laterais com ameias dão o ar fortificado — parece mais castelo que catedral. Por dentro, claustro com escavações romanas e visigodas.</p>
+        <p class="place-tip">No caminho descendo de Santa Luzia para a Baixa.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Castelo_de_S%C3%A3o_Jorge%2C_Lisboa_22.jpg/900px-Castelo_de_S%C3%A3o_Jorge%2C_Lisboa_22.jpg'),linear-gradient(160deg,#A8896B,#6B5742);background-size:cover,cover;background-position:center,center;">
+        <span class="num">10</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Fortaleza · origem moura</span>
+        <h4 class="place-name">Castelo de <em>São Jorge</em></h4>
+        <p class="place-desc">No alto da colina mais alta de Lisboa. Pode entrar para subir nas muralhas (a vista é sublime), ou só rodear pelos miradouros gratuitos do entorno. Bairros antigos (Mouraria, Alfama) descem dele em todas as direções.</p>
+        <p class="place-tip">Se for entrar, comprar online; fila grande.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ─────────── BAIXA & CAIS DO SODRÉ ─────────── -->
+  <div class="district-bar">
+    <span class="d-eyebrow">caminho até o rio · seg 22 jun</span>
+    <h3 class="d-name"><em>Baixa</em> &amp; Cais do Sodré</h3>
+    <span class="d-city">Lisboa · pombalina</span>
+  </div>
+
+  <div class="places-grid">
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Praca_do_Comercio_Lisbon.jpg/900px-Praca_do_Comercio_Lisbon.jpg'),linear-gradient(180deg,#E8C078,#C89F4B 70%,#8B6F3E);background-size:cover,cover;background-position:center,center;">
+        <span class="num">11</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Praça monumental · 1755</span>
+        <h4 class="place-name">Praça do <em>Comércio</em></h4>
+        <p class="place-desc">A enorme praça aberta para o Tejo. O Arco da Rua Augusta encerra-a do lado norte; o cais do lado sul é onde Lisboa se entrega ao rio. Pombalina pura — reconstruída após o terremoto. Para sentar num quiosque ou tomar um vinho ao fim da tarde.</p>
+        <p class="place-tip">Marechal natural antes de cruzar até o hotel.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1620141195936-07e57eccc6fd?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#6B2C39,#3C1A22);background-size:cover,cover;background-position:center,center;">
+        <span class="num">12</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Mercado curado · 2014</span>
+        <h4 class="place-name">Time Out <em>Market</em></h4>
+        <p class="place-desc">Mercado da Ribeira (de 1892) curado pela Time Out — bancas selecionadas dos melhores chefs e restaurantes da cidade num só espaço. Caótico no pico, mas a fórmula "2–3 bancas dividindo" resolve. Bom para a noite final, mesa compartilhada.</p>
+        <p class="place-tip">5 min a pé do hotel Dare Lisbon River. Ir cedo (~19h).</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ─────────── ÉVORA HISTÓRICA ─────────── -->
+  <div class="district-bar">
+    <span class="d-eyebrow">tarde de domingo · 21 jun</span>
+    <h3 class="d-name"><em>Évora</em> Histórica</h3>
+    <span class="d-city">Alentejo · UNESCO</span>
+  </div>
+
+  <div class="places-grid">
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/%C3%89vora_-_Templo_Romano_01.jpg/900px-%C3%89vora_-_Templo_Romano_01.jpg'),linear-gradient(180deg,#D4C098,#8B7B5E);background-size:cover,cover;background-position:center,center;">
+        <span class="num">13</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Ruína romana · séc. I d.C.</span>
+        <h4 class="place-name">Templo de <em>Diana</em></h4>
+        <p class="place-desc">O melhor monumento romano de Portugal — 14 colunas coríntias em granito, dedicado provavelmente ao imperador Augusto (e não a Diana, é nome popular). Sobreviveu por ter sido emparedado e usado como depósito durante séculos.</p>
+        <p class="place-tip">Praça adjacente tem cafés simples para pausa.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1693750034188-0ce3b87b17fb?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#9C7A5A,#5C4736);background-size:cover,cover;background-position:center,center;">
+        <span class="num">14</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Catedral · 1186–1250</span>
+        <h4 class="place-name">Sé de <em>Évora</em></h4>
+        <p class="place-desc">A maior catedral medieval de Portugal — granito alentejano cinza, mistura românico tardio com gótico inicial. Duas torres assimétricas, cone cônico no topo. Subir ao terraço dá vista panorâmica das ruas brancas de Évora.</p>
+        <p class="place-tip">Granito e pedra: levar casaco se subir ao terraço com vento.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1697992253894-b957af8b3be4?w=900&q=80&fit=crop&auto=format'),linear-gradient(180deg,#E8D5A8,#C89F4B 60%,#8B7355);background-size:cover,cover;background-position:center,center;">
+        <span class="num">15</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Praça central · medieval</span>
+        <h4 class="place-name">Praça do <em>Giraldo</em></h4>
+        <p class="place-desc">Coração de Évora desde o séc. XIII. Casas brancas com molduras amarelas (a faixa amarela é elemento característico do Alentejo, protegia contra o sol e supostamente espíritos). Chafariz central, cafés simples, Igreja de Santo Antão de um lado.</p>
+        <p class="place-tip">Café aqui no meio da tarde antes de continuar para Monsaraz.</p>
+      </div>
+    </article>
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://images.unsplash.com/photo-1583267576045-bcdc7183c0bc?w=900&q=80&fit=crop&auto=format'),linear-gradient(135deg,#3A332A,#1A1612);background-size:cover,cover;background-position:center,center;">
+        <span class="num">16</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Capela memento mori · séc. XVII</span>
+        <h4 class="place-name">Capela dos <em>Ossos</em></h4>
+        <p class="place-desc">"Nós ossos que aqui estamos pelos vossos esperamos." Capela franciscana com paredes e colunas literalmente feitas dos ossos de cerca de 5 mil monges, organizados em padrões geométricos. Não é para todos. Visitar com tempo — é forte.</p>
+        <p class="place-tip">Opcional. Pular se você for sensível ou não estiver no clima.</p>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ─────────── MONSARAZ ─────────── -->
+  <div class="district-bar">
+    <span class="d-eyebrow">fim de tarde de domingo · 21 jun</span>
+    <h3 class="d-name"><em>Monsaraz</em></h3>
+    <span class="d-city">Alentejo · vila medieval</span>
+  </div>
+
+  <div class="places-grid">
+
+    <article class="place-card" data-photo="">
+      <div class="place-illu" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Monsaraz_-_Fortifica%C3%A7%C3%B5es.jpg/900px-Monsaraz_-_Fortifica%C3%A7%C3%B5es.jpg'),linear-gradient(160deg,#A89070,#6B5742 50%,#3C2D22);background-size:cover,cover;background-position:center,center;">
+        <span class="num">17</span>
+        <span class="badge-img">foto</span>
+      </div>
+      <div class="place-body">
+        <span class="place-cat">Vila medieval · fronteira</span>
+        <h4 class="place-name"><em>Monsaraz</em> · castelo e vista</h4>
+        <p class="place-desc">Vila branca minúscula amuralhada num cume rochoso, com vista para o lago do Alqueva (o maior lago artificial da Europa) e a Espanha do outro lado. Calçada de pedra, igreja matriz, pelourinho. Tudo se faz em 40 minutos a pé, sem pressa.</p>
+        <p class="place-tip">Pôr do sol da muralha vale o desvio dos 45 min de carro.</p>
+      </div>
+    </article>
+
+  </div>
+
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════════ RESTAURANTES LISBOA -->
+<section id="mesa" class="restaurants">
+  <div class="section-head">
+    <span class="section-number">VIII · Restaurantes</span>
+    <h2 class="section-title">Restaurantes em <em>Lisboa</em></h2>
+    <p class="section-lede">Os reservados, os plano B e os de backup das suas dicas (boasdegarfo, musacooks). Tudo consolidado num só lugar.</p>
+  </div>
+
+  <div class="rest-grid">
+
+    <div class="rest-card confirmed">
+      <span class="rest-cat">Almoço · Sex 12/06 · 12h45</span>
+      <h3 class="rest-name">Canalha</h3>
+      <p class="rest-desc">Portuguesa contemporânea forte, sem cair em preço Michelin. Substitui o Velho Eurico que não tinha data.</p>
+      <div class="rest-picks">
+        <strong>Para pedir</strong>
+        <ul><li>Lula de torneira / manteiga de ovelha</li><li>Tortilha aberta de camarão e cebola</li><li>Raspado de presa de vaca arouquesa</li></ul>
+      </div>
+      <div class="rest-meta"><span>Rua Junqueira 207</span><span class="price">€35–45 pp</span></div>
+    </div>
+
+    <div class="rest-card confirmed">
+      <span class="rest-cat">Jantar · Sex 12/06 · 19h30</span>
+      <h3 class="rest-name">Rocco</h3>
+      <p class="rest-desc">Italiano refinado, ambiente elegante. A primeira noite especial da viagem.</p>
+      <div class="rest-picks">
+        <strong>Para pedir</strong>
+        <ul><li>Tagliatelle ai funghi e tartufo</li><li>Lasanha de berinjela</li><li>Tiramisù</li></ul>
+      </div>
+      <div class="rest-meta"><span>Rua Ivens 14</span><span class="price">€60–85 pp</span></div>
+    </div>
+
+    <div class="rest-card confirmed">
+      <span class="rest-cat">Almoço · Seg 22/06 · 13h00</span>
+      <h3 class="rest-name">Taberna · Bairro do Avillez</h3>
+      <p class="rest-desc">Vários espaços do chef num lugar só. Almoço executivo de segunda funciona bem; dica da musacooks também — "vários rests num lugar, vale ir porque atende a todos".</p>
+      <div class="rest-picks">
+        <strong>Para pedir</strong>
+        <ul><li>Tartar de novilho / maionese de anchovas</li><li>Pão com molho de camarão</li><li>Snacks de petisco</li></ul>
+      </div>
+      <div class="rest-meta"><span>Rua Nova Trindade 18</span><span class="price">€28–35 executivo</span></div>
+    </div>
+
+    <div class="rest-card">
+      <span class="rest-cat">Jantar · Seg 22/06 · 20h00</span>
+      <h3 class="rest-name">Time Out Market</h3>
+      <p class="rest-desc">Food hall caótico no pico — ir mais cedo (19h ou antes) ajuda. Estratégia: 2–3 bancas para dividir e montar mini-degustação.</p>
+      <div class="rest-picks">
+        <strong>Bancas que valem</strong>
+        <ul><li>Sea Me · prego de atum</li><li>O Prego da Peixaria</li><li>Croqueteria</li><li>Marisqueira Azul</li><li>Manteigaria para o pastel final</li></ul>
+      </div>
+      <div class="rest-meta"><span>Mercado da Ribeira</span><span class="price">€50–70 o casal</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · jantar descolado</span>
+      <h3 class="rest-name">Danoi</h3>
+      <p class="rest-desc">Cais do Sodré. Moderno, escuro, playlist ótima, pratos para dividir. Dica da musacooks: feijão branco cacio e pepe é o highlight.</p>
+      <div class="rest-picks">
+        <strong>Para pedir</strong>
+        <ul><li>Taco de atum / wasabi / abacate</li><li>Feijão branco cacio e pepe</li><li>Barriga de porco crocante</li></ul>
+      </div>
+      <div class="rest-meta"><span>Cais do Sodré</span><span class="price">€45–60 pp</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · balcão</span>
+      <h3 class="rest-name">Kureiji Izakaya</h3>
+      <p class="rest-desc">Príncipe Real, mesma rua da Lupita. Balcão com yakitori, sushi, carpaccio. Dica do amigo da musacooks — opção cosmopolita se quiserem fugir do registro português.</p>
+      <div class="rest-meta"><span>Príncipe Real</span><span class="price">€50–70 pp</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · pausa</span>
+      <h3 class="rest-name">Lupita Pizzaria</h3>
+      <p class="rest-desc">Pizza descontraída, boa para pausa pré-jantar. Pizza alla vodka + ranch à parte foi o pedido da musacooks.</p>
+      <div class="rest-meta"><span>Príncipe Real</span><span class="price">€25–35 pp</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · tapas</span>
+      <h3 class="rest-name">Tapisco</h3>
+      <p class="rest-desc">Tapas espanholas + petiscos portugueses. Tártar de atum gostoso pela musacooks.</p>
+      <div class="rest-picks">
+        <strong>Para pedir</strong>
+        <ul><li>Pan tumaca com jamón ibérico</li><li>Bacalhau à Brás com ovo confitado</li><li>Tortilla de batata cremosa</li></ul>
+      </div>
+      <div class="rest-meta"><span>Príncipe Real</span><span class="price">€35–50 pp</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · tasca</span>
+      <h3 class="rest-name">Tasca Baldracca</h3>
+      <p class="rest-desc">Mouraria, perto do Velho Eurico. Sabores portugueses e brasileiros em tasca moderna.</p>
+      <div class="rest-picks">
+        <strong>Para pedir</strong>
+        <ul><li>Tártaro de novilho / maionese de anchovas</li><li>FFC / frango frito</li></ul>
+      </div>
+      <div class="rest-meta"><span>Mouraria</span><span class="price">€30–45 pp</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · escondido</span>
+      <h3 class="rest-name">Taberna Sal Grosso</h3>
+      <p class="rest-desc">Alfama. Pequena, escondida, comida excelente, sem conforto/luxo. Dica de amiga.</p>
+      <div class="rest-picks">
+        <strong>Para pedir</strong>
+        <ul><li>Bacalhau à Brás</li><li>Tártaro de novilho</li><li>Berinjela com iogurte e nozes</li><li>Pica-pau de atum</li></ul>
+      </div>
+      <div class="rest-meta"><span>Alfama</span><span class="price">€30–45 pp</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · clássico</span>
+      <h3 class="rest-name">Cervejaria Ramiro</h3>
+      <p class="rest-desc">Clássico de mariscos. Pode ter fila e é fora do fluxo do roteiro. Dica de cunhada — frutos do mar de altíssima qualidade.</p>
+      <div class="rest-meta"><span>Av. Almirante Reis</span><span class="price">€40–60 pp</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Backup · experiência</span>
+      <h3 class="rest-name">Mini Bar</h3>
+      <p class="rest-desc">José Avillez. Experiência divertida, menu degustação, música mais alta, ambiente escuro. Preço acima da média mas não chega a Michelin 2 estrelas.</p>
+      <div class="rest-meta"><span>Chiado</span><span class="price">€70–95 pp</span></div>
+    </div>
+
+    <div class="rest-card">
+      <span class="rest-cat">Cafés &amp; pastel de nata</span>
+      <h3 class="rest-name">O ranking pastel</h3>
+      <p class="rest-desc">Lista da musacooks após provar muitos: 1º Castro Atelier · 2º Manteigaria (praticamente empatado) · 3º Pastéis de Belém · 4º Bairro Alto Hotel.</p>
+      <div class="rest-meta"><span>Chiado / vários</span><span class="price">€2–3 cada</span></div>
+    </div>
+
+    <div class="rest-card backup">
+      <span class="rest-cat">Drink · rooftop</span>
+      <h3 class="rest-name">Topo Chiado</h3>
+      <p class="rest-desc">Rooftop prático no eixo Chiado, próximo ao Rocco. 1 drink antes do jantar.</p>
+      <div class="rest-meta"><span>Chiado</span><span class="price">€14–18 / drink</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ VINÍCOLAS -->
+<section id="vinhos" class="wineries">
+  <div class="section-head">
+    <span class="section-number">IX · Adega</span>
+    <h2 class="section-title">Visita à <em>Cartuxa</em></h2>
+    <p class="section-lede">Esporão segue indisponível por evento privado, mas com o almoço de domingo no Fialho a Tapada de Coelheiros sai da rota — passa a entrar só como alternativa caso o Fialho não confirme. Foco mantém-se na Cartuxa pela manhã.</p>
+  </div>
+
+  <div class="wine-grid">
+
+    <div class="wine-card featured">
+      <span class="w-flag">Domingo · 10h30 · confirmado</span>
+      <span class="w-cat">Sto. Inácio de Loyola</span>
+      <h3 class="w-name">Adega <em>Cartuxa</em></h3>
+      <p class="w-loc">Quinta de Valbom · 2 km do centro de Évora</p>
+      <p class="w-detail">Antigo refeitório dos Jesuítas (séc. XVI), hoje uma das adegas mais respeitadas do Alentejo. Visita guiada à adega, prova de 6 vinhos premium da Fundação Eugénio de Almeida — universo Cartuxa, EA, Foral de Évora, Scala Coeli.</p>
+      <p class="w-detail"><em>Pêra-Manca não entra na prova premium</em> — perguntar na loja se há disponibilidade para compra avulsa.</p>
+      <div class="w-meta">
+        <span class="price">€60 / pessoa</span>
+        <span>~1h30</span>
+        <span>Reserva confirmada</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <span class="w-flag alt">Backup caso o Fialho não confirme</span>
+      <span class="w-cat">Jeep + almoço + 6 vinhos</span>
+      <h3 class="w-name">Tapada de <em>Coelheiros</em></h3>
+      <p class="w-loc">Igrejinha · Arraiolos · ~30 min de Évora</p>
+      <p class="w-detail">Propriedade familiar de 800 hectares — vinhas, sobreiros, pomar de nogueiras, pinhal. Pacote integrado: jeep tour (~1h) + almoço alentejano harmonizado com 6 vinhos da casa. Replicaria a vibe Esporão.</p>
+      <p class="w-detail" style="opacity:.8">Plano A é o Fialho. Esta opção entra se a reserva da família no Fialho falhar.</p>
+      <div class="w-meta">
+        <span class="price">~€80–100 pp</span>
+        <span>Backup</span>
+      </div>
+    </div>
+
+    <div class="wine-card">
+      <span class="w-flag off">Off · evento privado</span>
+      <span class="w-cat">Plano original</span>
+      <h3 class="w-name">Herdade do <em>Esporão</em></h3>
+      <p class="w-loc">Reguengos de Monsaraz</p>
+      <p class="w-detail">A primeira escolha — Wine Bar com prova premium — caiu por evento especial na data. Universo Esporão continua relevante para compras de garrafas e azeites na volta a Lisboa (lojas próprias e El Corte Inglés gourmet).</p>
+      <div class="w-meta">
+        <span>Indisponível 21/06</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════ IBIZA -->
+<section id="ibiza" class="ibiza">
+  <div class="section-head">
+    <span class="section-number">X · Ibiza</span>
+    <h2 class="section-title">Ibiza · <em>sete dias</em></h2>
+    <p class="section-lede">Os endereços que a família passou para reservar, com referências de preço, média de reviews e contexto. Padrão de saída em torno de USD 500/dia para os 6 dias livres. Duas noites de clube já mapeadas.</p>
+  </div>
+
+  <div class="ibiza-cover">
+    <div class="left">
+      <span class="eyebrow" style="font-size:1.4rem">13 → 20 de junho</span>
+      <p class="lede">Casa com família como base. Lista enxuta — só o que vocês pediram para reservar, mais Blue Marlin e Nikki Beach como referências icônicas da ilha que naturalmente entram na conversa.</p>
+    </div>
+    <div class="right"></div>
+  </div>
+
+  <div class="ibiza-tabs">
+    <button class="ibiza-tab active" data-tab="beach">Beach clubs</button>
+    <button class="ibiza-tab" data-tab="rest">Restaurantes</button>
+    <button class="ibiza-tab" data-tab="sunset">Sunset</button>
+    <button class="ibiza-tab" data-tab="night">Noites</button>
+    <button class="ibiza-tab" data-tab="day">Formentera</button>
+  </div>
+
+  <!-- BEACH CLUBS — só os que vocês mencionaram + 2 referências icônicas -->
+  <div class="ibiza-panel active" id="panel-beach">
+
+    <div class="ibiza-grid">
+
+      <div class="i-card">
+        <span class="i-vibe">bohemian luxury · areia branca · naturista</span>
+        <h3 class="i-name">El Chiringuito</h3>
+        <span class="i-loc">Es Cavallet · Sant Jordi</span>
+        <p class="i-desc">Refined dining bohemian na praia naturista mais bonita da ilha. Mediterrâneo cuidado, atmosfera relaxada, ótimo para almoço longo. Pinheiros, vibe descalço-mas-elegante. Reserva sempre necessária no verão.</p>
+        <div class="i-meta"><span>4.4 ★</span><span>+34 971 395 355</span><span class="price">Almoço €70–100 pp</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">no hay verano sin beso</span>
+        <h3 class="i-name">Beso Beach</h3>
+        <span class="i-loc">Platja de Ses Salines · Sant Jordi</span>
+        <p class="i-desc">Bohemian basco, areia branca, cozinha mediterrânea com toque do País Basco. Mar transparente de Ses Salines, vibe trendy mas com pé no chão. Pôr do sol vira festa com DJ.</p>
+        <div class="i-meta"><span>4.3 ★</span><span class="price">Almoço €80–110 pp</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">a rainha glamour de Cala Jondal · ícone</span>
+        <h3 class="i-name">Blue Marlin Ibiza</h3>
+        <span class="i-loc">Cala Jondal · Sant Josep</span>
+        <p class="i-desc">O beach club mais conhecido da ilha — jet-set, cabanas, almoço com DJ ao vivo. Praia de pedrinhas (não areia), mas o ambiente compensa. Acesso por estrada ou cais privativo de iate.</p>
+        <div class="i-meta"><span>4.4 ★</span><span>+34 971 410 117</span><span class="price">Almoço €100–140 pp</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">all-white internacional · marca global · ícone</span>
+        <h3 class="i-name">Nikki Beach Ibiza</h3>
+        <span class="i-loc">Santa Eulalia · costa leste</span>
+        <p class="i-desc">A unidade Ibiza da marca Nikki Beach (Miami, St. Tropez, Mallorca). Decoração branca total, piscina, dia chique de DJ e champagne. Lado leste é mais calmo que o sul.</p>
+        <div class="i-meta"><span>4.2 ★</span><span>+34 971 338 050</span><span class="price">Almoço €80–120 pp</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESTAURANTES — só os da lista que você passou -->
+  <div class="ibiza-panel" id="panel-rest">
+
+    <div class="ibiza-grid">
+
+      <div class="i-card">
+        <span class="i-vibe">peixe perfeito · chef ex-El Bulli</span>
+        <h3 class="i-name">Casa Jondal</h3>
+        <span class="i-loc">Cala Jondal · Sant Josep</span>
+        <p class="i-desc">Considerado por muitos <strong>o melhor restaurante da ilha</strong>. Chef Rafa Zafra (ex-chefe de cozinha do El Bulli) tratamento minimalista de peixes e mariscos — grelhado, cru, frito, sempre com o produto no centro. Terraço sob árvores Sabina, sem música tocando — o ambiente fala.</p>
+        <div class="i-meta"><span>4.4 ★</span><span>+34 971 802 766</span><span class="price">€100–160 pp</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">finca hilltop · vista de Dalt Vila</span>
+        <h3 class="i-name">Casa Maca</h3>
+        <span class="i-loc">Can Palau De Dalt · acima de Ibiza Town</span>
+        <p class="i-desc">Hotel-restaurant boutique numa finca de 300 anos restaurada nos morros acima da cidade, propriedade do Mambo Group. Grill argentino-colombiano (chef Alvaro David Ospina), horta orgânica própria. Vegetais grelhados são a estrela tanto quanto carnes nobres. Vista do skyline de Dalt Vila.</p>
+        <div class="i-meta"><span>Mambo Group</span><span class="price">€90–150 pp</span><span>Reserva</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">3 estrelas Michelin pé na areia</span>
+        <h3 class="i-name">El Silencio</h3>
+        <span class="i-loc">Cala Moli · costa oeste</span>
+        <p class="i-desc">Praia escondida com almoço criado pelo chef <strong>Mauro Colagreco</strong> (3 estrelas Michelin no Mirazur, eleito melhor restaurante do mundo em 2019). Mesa de madeira sob trelliça, pés na areia, ceviche e preparações flambadas. Pôr-do-sol extraordinário. Endereço discreto entre criativos.</p>
+        <div class="i-meta"><span>Mauro Colagreco</span><span class="price">€150–250 pp</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">capela séc. XVI · noite teatral</span>
+        <h3 class="i-name">Sa Capella</h3>
+        <span class="i-loc">Sant Antoni · Carrer Capella 26</span>
+        <p class="i-desc">Capela do séc. XVI jamais consagrada, virou restaurante em 1978. Tetos altos, paredes de pedra, velas. Mediterrânea cuidadosa, especialidade leitão. Provavelmente o jantar mais cinematográfico da ilha. Bom para uma noite especial.</p>
+        <div class="i-meta"><span>4.4 ★</span><span>+34 971 34 00 57</span><span class="price">€60–90 pp</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">chiringuito Repsol Sol · west coast</span>
+        <h3 class="i-name">Cala Gracioneta</h3>
+        <span class="i-loc">Pequena enseada · Sant Antoni</span>
+        <p class="i-desc">Chiringuito refinado distinguido pelo Guia Repsol (1 Sol). Peixe fresco na brasa, produtos locais com toque contemporâneo. Pequena cala da costa oeste, a 10–15 min do Hostal La Torre — fazem dupla natural sunset + jantar.</p>
+        <div class="i-meta"><span>Repsol Sol</span><span>+34 971 348 538</span><span class="price">€55–80 pp</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUNSET — só Es Vedrà + La Torre, sem inventar -->
+  <div class="ibiza-panel" id="panel-sunset">
+    <div class="ibiza-grid">
+
+      <div class="i-card">
+        <span class="i-vibe">o miradouro místico</span>
+        <h3 class="i-name">Es Vedrà</h3>
+        <span class="i-loc">Cala d'Hort · costa sudoeste</span>
+        <p class="i-desc">A grande pedra de 400 metros saindo do mar — o ícone da ilha, supostamente magnético. O melhor ponto de visão é o miradouro acima de Cala d'Hort. Chegar 1h antes do pôr do sol. Combinar com almoço em Es Boldado funciona perfeito.</p>
+        <div class="i-meta"><span>Gratis</span><span>Chegar 1h antes</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">o quartel-general hippie · anos 70</span>
+        <h3 class="i-name">Hostal La Torre</h3>
+        <span class="i-loc">Cap Negret · costa oeste</span>
+        <p class="i-desc">Um dos pôr-do-sol mais consagrados da ilha — varanda do hotel-bar, frequentada desde os anos 70. DJ tocando house balear, expresso martini lendário. Bom para drink antes do jantar (Cala Gracioneta fica perto).</p>
+        <div class="i-meta"><span>4.3 ★</span><span>Chegar 18h</span><span class="price">Drink €15–22</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NOITES -->
+  <div class="ibiza-panel" id="panel-night">
+
+    <div class="ibiza-grid">
+
+      <div class="i-card" style="border-left:4px solid var(--amora)">
+        <span class="i-vibe">mesa reservada · vintage culture residency</span>
+        <h3 class="i-name">Pacha · Vintage Culture</h3>
+        <span class="i-loc">Av. 8 d'Agost · Ibiza Town</span>
+        <p class="i-desc"><strong>Terça 16/06 · mesa reservada.</strong> Estreia da residência <em>Affairs</em> do brasileiro Vintage Culture (Lukas Ruiz) — uma das figuras mais influentes do house/melodic global atualmente. Co-curadoria com Eric Prydz, Mochakk, WhoMadeWho, Franky Rizardo. Pacha é o clube cereja icônico de Ibiza desde 1973.</p>
+        <div class="i-meta"><span>Ter 16/06</span><span class="price">Mesa reservada</span><span>Pacha desde 1973</span></div>
+      </div>
+
+      <div class="i-card" style="border-left:4px solid var(--mustard)">
+        <span class="i-vibe">possível · ainda não reservado</span>
+        <h3 class="i-name">Ushuaïa · Calvin Harris</h3>
+        <span class="i-loc">Playa d'en Bossa · open-air</span>
+        <p class="i-desc"><strong>Sexta 19/06 · possibilidade.</strong> Residência dupla do Calvin Harris no Ushuaïa, todas as sextas de 29/05 a 02/10. <em>Afternoon party</em> ao ar livre — portões 17h, fecha 23h. MK (Marc Kinchen) e Tyson O'Brien no warm-up. 7.000 pessoas no pool stage.</p>
+        <p class="i-desc" style="font-size:.78rem; font-style:italic; color:var(--ink-mute)"><strong>Dress code:</strong> smart casual — sem chinelo, shorts, traje de banho ou roupa esportiva. Reservar com antecedência (vende rápido).</p>
+        <div class="i-meta"><span>Sex 19/06</span><span class="price">Ticket €100–160</span><span>17h–23h</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORMENTERA -->
+  <div class="ibiza-panel" id="panel-day">
+
+    <p style="font-family:var(--display); font-style:italic; color:var(--ink-soft); font-size:1.05rem; margin-bottom:1.5rem; max-width:62ch">Ferry 30 minutos de Ibiza Town (porto: La Savina). Três operadores (Baleària, Trasmapi, Aquabus), saídas a cada 30 min, 7h–20h. Ir antes das 9h ou depois do meio-dia para evitar lotação. Return ticket €25–40.</p>
+
+    <div class="ibiza-grid">
+
+      <div class="i-card">
+        <span class="i-vibe">moinho de sal · Ses Illetes</span>
+        <h3 class="i-name">Es Molí de Sal</h3>
+        <span class="i-loc">Ses Illetes · Formentera</span>
+        <p class="i-desc">Antigo moinho de sal restaurado, num pontão entre as duas praias mais bonitas de Formentera (Illetes e Es Cavall d'en Borràs). Mediterrânea com foco em mariscos, paellas, fideuás. Vista única — Es Vedrà no horizonte ao pôr do sol. Reservar.</p>
+        <div class="i-meta"><span>Repsol Sol</span><span>+34 971 187 491</span><span class="price">€90–130 pp</span></div>
+      </div>
+
+      <div class="i-card">
+        <span class="i-vibe">praia caribenha · pública</span>
+        <h3 class="i-name">Platja de Ses Illetes</h3>
+        <span class="i-loc">Norte de Formentera</span>
+        <p class="i-desc">Areia branca caribenha, água translúcida em camadas. Eleita várias vezes uma das melhores praias da Europa. Caminhar até a ponta da península é experiência por si só. Sombra escassa — levar guarda-sol ou alugar.</p>
+        <div class="i-meta"><span>Gratis</span><span>Toalha + guarda-sol</span></div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════════ ORÇAMENTO -->
+<section id="orca" class="budget">
+  <div class="section-head">
+    <span class="section-number">XI · Orçamento</span>
+    <h2 class="section-title">Orçamento <em>estimado</em></h2>
+    <p class="section-lede">Apenas o que entra durante a viagem — sem voos, hotéis, aluguel de carro e seguro (já pagos / contratados à parte). Ibiza dimensionada em USD 500/dia × 6 dias livres, conforme o que você está estimando para o padrão da família.</p>
+  </div>
+
+  <table class="b-table">
+    <thead>
+      <tr>
+        <th>Bloco</th>
+        <th>Quando</th>
+        <th class="num">Refeições</th>
+        <th class="num">Deslocamentos</th>
+        <th class="num">Total casal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">Lisboa · chegada</td>
+        <td>Sex 12 (dia inteiro)</td>
+        <td class="num">€335</td>
+        <td class="num">€50</td>
+        <td class="num">€385</td>
+      </tr>
+      <tr>
+        <td class="label">Lisboa → aeroporto</td>
+        <td>Sáb 13 manhã</td>
+        <td class="num">€8</td>
+        <td class="num">€25</td>
+        <td class="num">€33</td>
+      </tr>
+      <tr>
+        <td class="label">Ibiza · 6 dias livres</td>
+        <td>13 → 20</td>
+        <td class="num" colspan="2">USD 500/dia × 6 = ~€2.760</td>
+        <td class="num">€2.760</td>
+      </tr>
+      <tr>
+        <td class="label">Évora · sábado</td>
+        <td>Sáb 20 chegada</td>
+        <td class="num">€100</td>
+        <td class="num">€0</td>
+        <td class="num">€100</td>
+      </tr>
+      <tr>
+        <td class="label">Évora · domingo</td>
+        <td>Cartuxa + Fialho + Monsaraz</td>
+        <td class="num">€330</td>
+        <td class="num">€15</td>
+        <td class="num">€345</td>
+      </tr>
+      <tr>
+        <td class="label">Lisboa · seg final</td>
+        <td>Avillez + Time Out</td>
+        <td class="num">€130</td>
+        <td class="num">€25</td>
+        <td class="num">€155</td>
+      </tr>
+      <tr>
+        <td class="label">Lisboa · ter saída</td>
+        <td>Café + aero</td>
+        <td class="num">€15</td>
+        <td class="num">€25</td>
+        <td class="num">€40</td>
+      </tr>
+      <tr>
+        <td class="label">Folga · compras &amp; gorjetas</td>
+        <td class="note">azulejo · vinho · presentes</td>
+        <td class="num" colspan="2"></td>
+        <td class="num">€400–600</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="label">A levar para a viagem</td>
+        <td></td>
+        <td class="num" colspan="2"></td>
+        <td class="num"><em>€4.200–4.500</em></td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <p style="font-size:.85rem; color:var(--wood); margin-top:1.5rem; line-height:1.6; max-width:62ch">
+    <strong style="color:var(--mustard); font-family:var(--display); font-weight:500">À parte (já pagos ou contratados):</strong> 4 voos · 3 hotéis (Dare Lisbon ×2 + Convento do Espinheiro) · aluguel de carro 2 dias Lisboa→Évora→Lisboa (~€100 + tanque €60 + pedágios €20) · seguro viagem · chip de celular.
+  </p>
+
+  <div class="b-grid">
+    <div class="b-card">
+      <div class="h">Lisboa · mesas reservadas</div>
+      <div class="v">€90 <em>pp</em></div>
+      <div class="d">Média por jantar (Rocco, Canalha) e almoço (Avillez). Time Out cai bastante, café é €5.</div>
+    </div>
+    <div class="b-card">
+      <div class="h">Ibiza · padrão família</div>
+      <div class="v">€460 <em>/dia</em></div>
+      <div class="d">USD 500/dia ao câmbio atual. Ícones (Blue Marlin, Casa Jondal, Casa Maca, El Silencio) e mesas em Pacha cabem nesse padrão.</div>
+    </div>
+    <div class="b-card">
+      <div class="h">Cartuxa Sto. Inácio</div>
+      <div class="v">€120</div>
+      <div class="d">€60 × 2 pessoas, tour + prova de 6 vinhos premium. Reserva confirmada.</div>
+    </div>
+    <div class="b-card">
+      <div class="h">Fialho · almoço</div>
+      <div class="v">€110</div>
+      <div class="d">€45–55 pp com vinho do Alentejo, perna de cabrito como prato central.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CASH -->
+<section id="cash" class="tips">
+  <div class="section-head">
+    <span class="section-number">XII · Cash</span>
+    <h2 class="section-title">Cash a <em>levar</em></h2>
+    <p class="section-lede">Portugal e Espanha são quase 100% cartão. Cash entra para tabernas pequenas, chiringuitos de praia, gorjetas elegantes e mercados locais — não para a maior parte das refeições e hotéis.</p>
+  </div>
+
+  <div class="tip-grid">
+    <div class="tip-card">
+      <h4>A regra de bolso</h4>
+      <p>Levar <strong>€600 a €800 em cash</strong> total para a viagem inteira é o suficiente. Resto no cartão internacional (Wise, Nomad ou um Visa/Mastercard com câmbio competitivo) e na carteira digital se você usar Apple Pay/Google Pay.</p>
+      <p>Sacar mais quando precisar: caixa Multibanco em Portugal aceita Visa/Master sem dor. Em Ibiza qualquer banco resolve.</p>
+    </div>
+
+    <div class="tip-card alt">
+      <h4>Distribuição sugerida</h4>
+      <p><strong>€250–300 para Portugal</strong> (Lisboa + Évora). Cobre tabernas, gorjetas, vinho avulso de pequeno produtor, taxi de emergência, café aqui e ali.</p>
+      <p><strong>€350–500 para Ibiza</strong>. Aqui o cash sai mais — chiringuitos sem maquininha, gorjetas em beach club (10–15% é elegante), mercados, scooter/ferry, expresso martini no balcão do Hostal La Torre.</p>
+    </div>
+
+    <div class="tip-card alt2">
+      <h4>Onde o cartão NÃO funciona bem</h4>
+      <p>Quase em lugar nenhum, mas atenção a: chiringuitos minúsculos na praia (alguns só cash), feirinhas de rua, e algumas tabernas alentejanas muito tradicionais. Time Out Market e mercados grandes aceitam tudo.</p>
+      <p><strong>Gorjetas:</strong> em Portugal, deixar 5–10% em mesa decente; em Espanha, arredondar para cima é normal. Pode ser no cartão, mas cash é mais elegante.</p>
+    </div>
+
+    <div class="tip-card alt3">
+      <h4>Logística do câmbio</h4>
+      <p><strong>Não</strong> trocar reais no Brasil no aeroporto — taxa horrível. Melhor: levar cash em dólar ou euro comprado em casa de câmbio confiável em São Paulo, ou simplesmente sacar em Lisboa logo na chegada (Multibanco do aeroporto cobra baixo).</p>
+      <p><strong>Não</strong> aceitar conversão para reais na maquininha — sempre escolher "cobrar em euros". O DCC (Dynamic Currency Conversion) é roubo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ CHECKLIST MALA -->
+<section id="pend" class="todos">
+  <div class="section-head">
+    <span class="section-number">XIII · Checklist</span>
+    <h2 class="section-title">Checklist <em>para a mala</em></h2>
+    <p class="section-lede">O que cada contexto da viagem pede, em forma de checklist para arrumar a bagagem sem listar peça por peça. Médias históricas confiáveis para junho — pode haver variação de 2–3 °C para mais ou para menos.</p>
+  </div>
+
+  <!-- 1. Contagem de dias por contexto -->
+  <h3 style="font-family:var(--display); font-size:1.5rem; font-weight:500; color:var(--ink); margin:1rem 0 1rem; letter-spacing:-.01em">Quantos dias <em style="color:var(--sage-deep); font-style:italic">de cada tipo</em></h3>
+
+  <div class="todo-grid" style="grid-template-columns:repeat(auto-fit, minmax(220px, 1fr))">
+
+    <div class="todo-col" style="border-top:3px solid var(--ink)">
+      <h3 style="font-size:.95rem">Voos longos</h3>
+      <p style="font-size:2.2rem; font-family:var(--display); font-weight:300; color:var(--amora); line-height:1; margin:.5rem 0 .5rem">2 dias</p>
+      <p style="font-size:.82rem; color:var(--ink-soft); line-height:1.5">Ida 11/06 e volta 23/06 · ~10h30 cada · LATAM GRU↔LIS</p>
+    </div>
+
+    <div class="todo-col" style="border-top:3px solid var(--mustard)">
+      <h3 style="font-size:.95rem">Voos curtos</h3>
+      <p style="font-size:2.2rem; font-family:var(--display); font-weight:300; color:var(--amora); line-height:1; margin:.5rem 0 .5rem">2 dias</p>
+      <p style="font-size:.82rem; color:var(--ink-soft); line-height:1.5">Sáb 13 LIS→IBZ e sáb 20 IBZ→LIS · ~1h cada · TAP</p>
+    </div>
+
+    <div class="todo-col" style="border-top:3px solid var(--sage-deep)">
+      <h3 style="font-size:.95rem">Lisboa cidade</h3>
+      <p style="font-size:2.2rem; font-family:var(--display); font-weight:300; color:var(--amora); line-height:1; margin:.5rem 0 .5rem">2 + 2</p>
+      <p style="font-size:.82rem; color:var(--ink-soft); line-height:1.5">2 dias úteis (sex 12 e seg 22) + 2 manhãs de transição (sáb 13 e ter 23)</p>
+    </div>
+
+    <div class="todo-col" style="border-top:3px solid var(--terra)">
+      <h3 style="font-size:.95rem">Ibiza praia</h3>
+      <p style="font-size:2.2rem; font-family:var(--display); font-weight:300; color:var(--amora); line-height:1; margin:.5rem 0 .5rem">7 dias</p>
+      <p style="font-size:.82rem; color:var(--ink-soft); line-height:1.5">13 → 20/06 · casa como base · 2 noites de clube na agenda</p>
+    </div>
+
+    <div class="todo-col" style="border-top:3px solid var(--amora)">
+      <h3 style="font-size:.95rem">Évora · Alentejo</h3>
+      <p style="font-size:2.2rem; font-family:var(--display); font-weight:300; color:var(--amora); line-height:1; margin:.5rem 0 .5rem">2 dias</p>
+      <p style="font-size:.82rem; color:var(--ink-soft); line-height:1.5">Sáb 20 (chegada noite) + dom 21 (Cartuxa, Fialho, Évora, Monsaraz)</p>
+    </div>
+
+  </div>
+
+  <!-- 2. Clima previsto por destino -->
+  <h3 style="font-family:var(--display); font-size:1.5rem; font-weight:500; color:var(--ink); margin:3rem 0 1rem; letter-spacing:-.01em">O <em style="color:var(--sage-deep); font-style:italic">clima</em> esperado</h3>
+
+  <div class="todo-grid" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))">
+
+    <div class="todo-col" style="background:linear-gradient(180deg, rgba(107,140,174,.08), transparent)">
+      <h3 style="display:flex; justify-content:space-between; align-items:baseline">
+        <span>Lisboa</span>
+        <span style="font-family:var(--display); font-style:italic; font-weight:400; color:var(--amora); font-size:1.4rem">16–26 °C</span>
+      </h3>
+      <ul class="todo-list">
+        <li><div>Sol predominante, mar Atlântico ainda fresco</div></li>
+        <li><div><strong>Brisa de 24 km/h</strong> média — sopra mais forte ao entardecer no Tejo</div></li>
+        <li><div>Chuva improvável (~8 dias com 13mm no mês todo) mas leve garoa pode aparecer</div></li>
+        <li><div>Manhãs frescas (~17 °C) ficam quentes rápido até meio-dia</div></li>
+      </ul>
+    </div>
+
+    <div class="todo-col" style="background:linear-gradient(180deg, rgba(200,159,75,.12), transparent)">
+      <h3 style="display:flex; justify-content:space-between; align-items:baseline">
+        <span>Évora · Alentejo</span>
+        <span style="font-family:var(--display); font-style:italic; font-weight:400; color:var(--amora); font-size:1.4rem">16–30 °C</span>
+      </h3>
+      <ul class="todo-list">
+        <li><div>Dia <strong>quente e muito seco</strong> · 47% dos dias do mês ultrapassam 30 °C</div></li>
+        <li><div>Noite fresca, especialmente no campo (Convento, Monsaraz)</div></li>
+        <li><div>Chuva quase nula em junho</div></li>
+        <li><div>Sol nasce 5h07 / põe 19h58 · dia longo, luz dourada estendida</div></li>
+      </ul>
+    </div>
+
+    <div class="todo-col" style="background:linear-gradient(180deg, rgba(138,154,123,.12), transparent)">
+      <h3 style="display:flex; justify-content:space-between; align-items:baseline">
+        <span>Ibiza</span>
+        <span style="font-family:var(--display); font-style:italic; font-weight:400; color:var(--amora); font-size:1.4rem">18–27 °C</span>
+      </h3>
+      <ul class="todo-list">
+        <li><div>Sol garantido praticamente todos os dias</div></li>
+        <li><div><strong>Mar a 21 °C</strong> · refrescante, ainda não está morno</div></li>
+        <li><div>Brisa marinha nas costas oeste e sul</div></li>
+        <li><div>Pôr do sol às 21h15 — abre tarde para sunset spots</div></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 3. Dress code por contexto -->
+  <h3 style="font-family:var(--display); font-size:1.5rem; font-weight:500; color:var(--ink); margin:3rem 0 1rem; letter-spacing:-.01em">Dress code <em style="color:var(--sage-deep); font-style:italic">essencial</em> por contexto</h3>
+
+  <div class="todo-grid">
+
+    <div class="todo-col">
+      <h3>Conforto e cidade</h3>
+      <ul class="todo-list">
+        <li><div><strong>Voos longos</strong> · roupa confortável <em>em camadas</em>, avião gela bastante na madrugada</div></li>
+        <li><div><strong>Lisboa de dia</strong> · casual chic, sapato muito bom <em>para a calçada portuguesa</em> (não confiar em sola fina)</div></li>
+        <li><div><strong>Jantares Lisboa</strong> (Rocco, Avillez) · smart casual elegante · nada de tênis</div></li>
+        <li><div><strong>Time Out Market</strong> · casual, vai estar lotado</div></li>
+      </ul>
+    </div>
+
+    <div class="todo-col">
+      <h3>Alentejo · campo e adega</h3>
+      <ul class="todo-list">
+        <li><div><strong>Cartuxa</strong> · roupa fresca + sapato fechado para a adega (chão de pedra, fresco)</div></li>
+        <li><div><strong>Fialho</strong> · smart casual conservador · é restaurante de família, não experimental</div></li>
+        <li><div><strong>Évora a pé · Monsaraz</strong> · roupa leve, sapato muito confortável (pedra antiga é hostil)</div></li>
+        <li><div><strong>Convento do Espinheiro</strong> · roupa bonita para o jantar no Divinus</div></li>
+      </ul>
+    </div>
+
+    <div class="todo-col">
+      <h3>Ibiza · sol, beach club e noite</h3>
+      <ul class="todo-list">
+        <li><div><strong>Praia · dia</strong> · maiô + cobertura + sandália · chapéu para o meio-dia</div></li>
+        <li><div><strong>Beach club</strong> (Blue Marlin, Casa Jondal, Nikki) · dress code <em>chic</em> · vestido leve, polo de linho, sandália boa, óculos. Não vai descalço.</div></li>
+        <li><div><strong>Jantares top</strong> (Sa Capella, Amante, Nobu, Casa Maca, El Silencio) · smart casual elegante</div></li>
+        <li><div style="background:rgba(107,44,57,.06); padding:.75rem; border-left:2px solid var(--amora); margin-top:.4rem"><strong>Ushuaïa · Calvin Harris (sex 19)</strong> · regra firme do clube: <em>nada de chinelo, shorts, traje de banho ou roupa esportiva</em>. Smart casual obrigatório.</div></li>
+        <li><div><strong>Pacha · Vintage Culture (ter 16)</strong> · pista mais chic, vestido / look completo, salto se quiser</div></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 4. Bagagem e compras -->
+  <h3 style="font-family:var(--display); font-size:1.5rem; font-weight:500; color:var(--ink); margin:3rem 0 1rem; letter-spacing:-.01em">Bagagem e <em style="color:var(--sage-deep); font-style:italic">compras planejadas</em></h3>
+
+  <div class="todo-grid">
+
+    <div class="todo-col">
+      <h3>Estrutura sugerida</h3>
+      <ul class="todo-list">
+        <li><div><strong>1 mala grande + 1 mochila/bolsa</strong> de cabine cada</div></li>
+        <li><div><strong>Voo de volta (seg 22 → ter 23):</strong> você sai de Évora com a mala já bagunçada do Alentejo. Deixar 1 muda extra na mochila para o dia 22 em Lisboa — assim não precisa abrir mala no hotel novo.</div></li>
+        <li><div><strong>Reservar ~5kg de espaço</strong> para compras — é mais peso do que parece (porcelana e vinho pesam muito)</div></li>
+      </ul>
+    </div>
+
+    <div class="todo-col">
+      <h3>O que costuma sair de Lisboa</h3>
+      <ul class="todo-list">
+        <li><div><strong>Vista Alegre</strong> · porcelanas portuguesas (pesa)</div></li>
+        <li><div><strong>A Vida Portuguesa</strong> · sabonetes Claus Porto, conservas, objetos editados</div></li>
+        <li><div><strong>Azulejo</strong> · cerâmica do séc. XIX em ateliês do Chiado/Alfama (pesa)</div></li>
+        <li><div><strong>Vinho</strong> · garrafa Cartuxa Branco/Tinto, Pêra-Manca se conseguir avulso (cada garrafa ~1.5kg)</div></li>
+        <li><div><strong>Castelbel, Confiança</strong> · sabonetes artesanais portugueses</div></li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="f-title"><em>Bon voyage</em></div>
+  <div class="f-sub">Treze dias para guardar.</div>
+  <div class="f-meta">Caderno de Viagem · Lisboa &middot; Évora &middot; Eivissa · Junho 2026</div>
+</footer>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+/* =============================================================
+   MAPA INTERATIVO — Leaflet com 3 escalas
+   ============================================================= */
+
+// Centro intermediário entre Lisboa e Ibiza
+const map = L.map('map', {
+  center: [38.85, -3.5],
+  zoom: 6,
+  scrollWheelZoom: false,
+  zoomControl: true
+});
+
+// Tile estilo carto editorial (sem chave)
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap &copy; CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+// Labels separados para ficar mais legível
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+  attribution: '',
+  subdomains: 'abcd',
+  maxZoom: 19,
+  pane: 'shadowPane'
+}).addTo(map);
+
+// Helper para criar marker categoricamente
+function pinIcon(cat, label){
+  return L.divIcon({
+    className:'',
+    html:`<div class="pin ${cat}"><span>${label}</span></div>`,
+    iconSize:[34,34],
+    iconAnchor:[17,34]
+  });
+}
+
+// =====================================================
+// PONTOS GEORREFERENCIADOS
+// =====================================================
+const places = [
+  // ────── LISBOA ──────
+  { lat:38.7115, lng:-9.1394, cat:'hotel', label:'1',
+    title:'Dare Lisbon House', tag:'Hotel · 12–13 jun', desc:'Townhouse boutique no Chiado. Rua dos Sapateiros 135.' },
+  { lat:38.7072, lng:-9.1452, cat:'hotel', label:'3',
+    title:'Dare Lisbon River', tag:'Hotel · 22–23 jun', desc:'Base final perto do Time Out. Tv. de São Paulo 5.' },
+  { lat:38.7099, lng:-9.1437, cat:'rest', label:'C',
+    title:'Castro Atelier', tag:'Café · sex 12 manhã', desc:'Pastel de nata #1 do casal musacooks. Rua Garrett.' },
+  { lat:38.7099, lng:-9.1437, cat:'rest', label:'M',
+    title:'Manteigaria', tag:'Café · sáb 13 manhã', desc:'Pastel de nata icônico, R. do Loreto 2.' },
+  { lat:38.7022, lng:-9.1996, cat:'rest', label:'1',
+    title:'Canalha', tag:'Almoço · sex 12 · 12h45', desc:'Portuguesa contemporânea. Rua Junqueira 207. Reservado.' },
+  { lat:38.7104, lng:-9.1419, cat:'rest', label:'2',
+    title:'Rocco', tag:'Jantar · sex 12 · 19h30', desc:'Italiano refinado. Rua Ivens 14. Reservado.' },
+  { lat:38.7110, lng:-9.1418, cat:'rest', label:'T',
+    title:'Topo Chiado', tag:'Drink · sex 12 · 18h30', desc:'Rooftop prático antes do Rocco.' },
+  { lat:38.7104, lng:-9.1419, cat:'rest', label:'A',
+    title:'Taberna · Bairro do Avillez', tag:'Almoço · seg 22 · 13h', desc:'Rua Nova Trindade 18. Reservado.' },
+  { lat:38.7068, lng:-9.1456, cat:'rest', label:'T',
+    title:'Time Out Market', tag:'Jantar · seg 22 · 20h', desc:'Food hall. Mini-degustação em 2-3 bancas.' },
+  // Lisboa sights
+  { lat:38.6979, lng:-9.2068, cat:'sight', label:'J',
+    title:'Mosteiro dos Jerónimos', tag:'Belém · sex 12 manhã', desc:'Era manuelina, século XVI. Fachada vale, entrar é opcional.' },
+  { lat:38.6953, lng:-9.1939, cat:'sight', label:'M',
+    title:'MAAT', tag:'Belém · arquitetura', desc:'Arquitetura contemporânea de Amanda Levete à beira do Tejo.' },
+  { lat:38.6916, lng:-9.2160, cat:'sight', label:'B',
+    title:'Torre de Belém', tag:'Belém', desc:'800m da Jerónimos, manuelina, ícone.' },
+  { lat:38.7128, lng:-9.1305, cat:'sight', label:'S',
+    title:'Miradouro Santa Luzia', tag:'Alfama · seg 22 tarde', desc:'Azulejos e buganvílias com vista do Tejo.' },
+  { lat:38.7128, lng:-9.1289, cat:'sight', label:'P',
+    title:'Portas do Sol', tag:'Alfama · seg 22 tarde', desc:'Vista mais aberta, café/quiosque ao lado.' },
+  { lat:38.7079, lng:-9.1366, cat:'sight', label:'C',
+    title:'Praça do Comércio', tag:'Baixa · seg 22 tarde', desc:'Fim do percurso descendo da Alfama.' },
+  // Lojas
+  { lat:38.7104, lng:-9.1413, cat:'shop', label:'V',
+    title:'A Vida Portuguesa', tag:'Lojas Chiado', desc:'Objetos editados, sabonetes, cerâmica.' },
+  { lat:38.7106, lng:-9.1424, cat:'shop', label:'A',
+    title:'Vista Alegre', tag:'Lojas Chiado', desc:'Porcelanas portuguesas icônicas.' },
+
+  // ────── ÉVORA / ALENTEJO ──────
+  { lat:38.6125, lng:-7.8742, cat:'hotel', label:'2',
+    title:'Convento do Espinheiro', tag:'Hotel · 20–22 jun', desc:'Convento séc. XV restaurado, spa, piscina.' },
+  { lat:38.5722, lng:-7.9075, cat:'sight', label:'G',
+    title:'Praça do Giraldo', tag:'Évora histórica', desc:'Coração da cidade.' },
+  { lat:38.5728, lng:-7.9100, cat:'rest', label:'F',
+    title:'Restaurante Fialho', tag:'Almoço · dom 21', desc:'Travessa Mascarenhas 16. Família tentando reservar via hotel.' },
+  { lat:38.5857, lng:-7.9196, cat:'wine', label:'C',
+    title:'Adega Cartuxa', tag:'Manhã · dom 21 · 10h30', desc:'Quinta de Valbom. Tour Sto. Inácio reservado.' },
+  { lat:38.7517, lng:-7.8917, cat:'wine', label:'T',
+    title:'Tapada de Coelheiros', tag:'Backup · se Fialho não confirmar', desc:'Arraiolos. Jeep + almoço + 6 vinhos.' },
+  { lat:38.4423, lng:-7.3805, cat:'sight', label:'M',
+    title:'Monsaraz', tag:'Vila medieval', desc:'Castelo, vista do Alqueva e Espanha.' },
+  { lat:38.4467, lng:-7.4019, cat:'wine', label:'B',
+    title:'São Lourenço do Barrocal', tag:'Alternativa · dom', desc:'Hotel-vinícola Michelin, farm-to-table.' },
+
+  // ────── IBIZA & FORMENTERA ──────
+  { lat:38.9080, lng:1.4348, cat:'sight', label:'I',
+    title:'Ibiza Town · Dalt Vila', tag:'Cidade alta', desc:'Patrimônio UNESCO, muralhas séc. XVI.' },
+  { lat:38.8847, lng:1.2050, cat:'sight', label:'V',
+    title:'Es Vedrà', tag:'Miradouro · sunset', desc:'Pedra mística de 400m saindo do mar.' },
+  // Beach clubs ícone
+  { lat:38.8678, lng:1.3286, cat:'beach', label:'B',
+    title:'Blue Marlin Ibiza', tag:'Beach club ícone · Cala Jondal', desc:'A rainha glamour. Almoço €100–140 pp.' },
+  { lat:38.9930, lng:1.5497, cat:'beach', label:'N',
+    title:'Nikki Beach Ibiza', tag:'Beach club ícone · Santa Eulalia', desc:'All-white internacional. Almoço €80–120 pp.' },
+  { lat:38.8456, lng:1.4172, cat:'beach', label:'X',
+    title:'El Chiringuito Es Cavallet', tag:'Beach club ícone · Es Cavallet', desc:'Bohemian luxury. Almoço €70–100 pp.' },
+  // Tier 2
+  { lat:38.8347, lng:1.3902, cat:'beach', label:'S',
+    title:'Beso Beach', tag:'Beach club · Ses Salines', desc:'Bohemian basco. Almoço €80–110 pp.' },
+  // Praias
+  // Sunset
+  { lat:38.9626, lng:1.2453, cat:'sight', label:'L',
+    title:'Hostal La Torre', tag:'Sunset clássico', desc:'O sunset balear desde os anos 70.' },
+  // Restaurantes
+  { lat:38.8682, lng:1.3275, cat:'rest', label:'J',
+    title:'Casa Jondal', tag:'Almoço top · chef ex-El Bulli', desc:'Considerado o melhor de Ibiza. Rafa Zafra.' },
+  { lat:38.9132, lng:1.4242, cat:'rest', label:'M',
+    title:'Casa Maca', tag:'Hilltop · vista Dalt Vila', desc:'Mambo Group. Grill argentino-colombiano.' },
+  { lat:38.9395, lng:1.2236, cat:'rest', label:'I',
+    title:'El Silencio', tag:'3 estrelas Michelin · Cala Moli', desc:'Chef Mauro Colagreco. €150–250 pp.' },
+  { lat:38.9858, lng:1.2986, cat:'rest', label:'P',
+    title:'Sa Capella', tag:'Jantar em capela séc. XVI', desc:'Sant Antoni. Reservar.' },
+  { lat:38.9842, lng:1.2811, cat:'rest', label:'G',
+    title:'Cala Gracioneta', tag:'Chiringuito Repsol Sol', desc:'Pequena cala oeste. Peixe na brasa.' },
+  { lat:38.9269, lng:1.5278, cat:'rest', label:'Z',
+    title:'Amante', tag:'Cliff-top restaurant', desc:'Sol d\'en Serra. Reserva imprescindível.' },
+  { lat:38.9244, lng:1.4576, cat:'rest', label:'U',
+    title:'Nobu Ibiza Bay', tag:'Japonês mediterrâneo', desc:'Talamanca. Jantar especial.' },
+  // Noites
+  { lat:38.9145, lng:1.4528, cat:'sight', label:'P',
+    title:'Pacha Ibiza', tag:'Ter 16/06 · Vintage Culture · MESA', desc:'Residência Affairs. Eric Prydz, Mochakk, WhoMadeWho.' },
+  { lat:38.8854, lng:1.4081, cat:'sight', label:'U',
+    title:'Ushuaïa Ibiza', tag:'Sex 19/06 · Calvin Harris · possível', desc:'Afternoon party 17h-23h. Smart casual.' },
+  // Formentera
+  { lat:38.7237, lng:1.4204, cat:'sight', label:'F',
+    title:'Formentera · La Savina', tag:'Day trip · ferry 30 min', desc:'Saídas a cada 30 min de Ibiza Town.' },
+  { lat:38.7556, lng:1.4172, cat:'rest', label:'E',
+    title:'Es Molí de Sal', tag:'Formentera · Ses Illetes', desc:'Antigo moinho de sal. Repsol Sol.' }
+];
+
+// Cria todos os markers
+const allMarkers = places.map(p => {
+  const m = L.marker([p.lat, p.lng], { icon: pinIcon(p.cat, p.label) });
+  m.bindPopup(`
+    <span class="pop-cat">${p.tag}</span>
+    <span class="pop-title">${p.title}</span>
+    <span class="pop-desc">${p.desc}</span>
+  `);
+  m.category = p.cat;
+  return m;
+});
+
+const layer = L.layerGroup(allMarkers).addTo(map);
+
+// Filtros
+document.querySelectorAll('.map-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.map-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    layer.clearLayers();
+    allMarkers.forEach(m => {
+      if (cat === 'all' || m.category === cat) layer.addLayer(m);
+    });
+  });
+});
+
+// =============================================================
+// Ibiza tabs
+// =============================================================
+document.querySelectorAll('.ibiza-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.ibiza-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.ibiza-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// =============================================================
+// Timeline click → roll to corresponding day (smooth)
+// =============================================================
+document.querySelectorAll('.tl-day').forEach(d => {
+  d.addEventListener('click', () => {
+    document.getElementById('dia-a-dia').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
